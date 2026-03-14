@@ -30,6 +30,5 @@
     "recipes": [
       "aquamirae_delight:cooked_spinefish_slice"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

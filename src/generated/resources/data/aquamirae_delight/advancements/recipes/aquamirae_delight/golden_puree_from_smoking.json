@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "golden_puree": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "aquamirae:golden_moth_in_a_jar"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "aquamirae_delight:golden_puree_from_smoking"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "golden_puree",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "aquamirae_delight:golden_puree_from_smoking"
+    ]
+  }
+}

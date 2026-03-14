@@ -6,22 +6,22 @@
         "items": [
           {
             "items": [
-              "aquamirae:cooked_spinefish"
+              "aquamirae:fin"
             ]
           },
           {
             "items": [
-              "farmersdelight:cooked_rice"
+              "minecraft:diamond"
             ]
           },
           {
             "items": [
-              "minecraft:dried_kelp"
+              "minecraft:stick"
             ]
           },
           {
             "items": [
-              "farmersdelight:cabbage"
+              "aquamirae:ship_graveyard_echo"
             ]
           }
         ]
@@ -30,7 +30,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aquamirae_delight:spinefish_kelp_roll"
+        "recipe": "aquamirae_delight:fin_filleter"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -43,8 +43,7 @@
   ],
   "rewards": {
     "recipes": [
-      "aquamirae_delight:spinefish_kelp_roll"
+      "aquamirae_delight:fin_filleter"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

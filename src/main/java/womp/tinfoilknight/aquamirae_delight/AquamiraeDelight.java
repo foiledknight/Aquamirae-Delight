@@ -1,10 +1,11 @@
 package womp.tinfoilknight.aquamirae_delight;
 
 import com.mojang.logging.LogUtils;
+import com.obscuria.aquamirae.registry.AquamiraeItems;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -19,7 +20,6 @@ import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
@@ -65,7 +65,13 @@ public class AquamiraeDelight {
     public static final int LONG_DURATION = 6000; //5 minutes
     public static final int EXTREME_DURATION = 9600; //8 minutes
 
-    public static final Item.Properties common = new Item.Properties().rarity(Rarity.COMMON).stacksTo(64);
+    public static final CreativeModeTab TAB = new CreativeModeTab(MODID) {
+        public @NotNull ItemStack makeIcon() {
+            return ((Item) GLAZED_GRILLED_SPINEFISH.get()).getDefaultInstance();
+        }
+    };
+
+    public static final Item.Properties common = new Item.Properties().rarity(Rarity.COMMON).stacksTo(64).tab(TAB);
     public static final FoodProperties spinefish_slice = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.2F).meat().build();
     public static final FoodProperties cooked_spinefish_slice = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.4F).meat().build();
     public static final FoodProperties spinefish_roll = (new FoodProperties.Builder()).nutrition(7).saturationMod(0.6F).build();
@@ -84,7 +90,6 @@ public class AquamiraeDelight {
 
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
-    private static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
     private static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, MODID);
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES_OVERRIDE = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, "aquamirae");
     public static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, MODID);
@@ -102,75 +107,41 @@ public class AquamiraeDelight {
     public static final RegistryObject<Item> SEPARATOR = ITEMS.register("separator", Separator::new);
     public static final RegistryObject<Item> FIN_FILLETER = ITEMS.register("fin_filleter", FinFilleter::new);
     public static final RegistryObject<Item> REMNANTS_KNIFE = ITEMS.register("remnants_knife", RemnantsKnife::new);
-    public static final RegistryObject<Item> SPINEFISH_SLICE = ITEMS.register("spinefish_slice", () -> new Item(foodItem(spinefish_slice)));
-    public static final RegistryObject<Item> COOKED_SPINEFISH_SLICE = ITEMS.register("cooked_spinefish_slice", () -> new Item(foodItem(cooked_spinefish_slice)));
+    public static final RegistryObject<Item> SPINEFISH_SLICE = ITEMS.register("spinefish_slice", () -> new Item(foodItem(spinefish_slice).tab(TAB)));
+    public static final RegistryObject<Item> COOKED_SPINEFISH_SLICE = ITEMS.register("cooked_spinefish_slice", () -> new Item(foodItem(cooked_spinefish_slice).tab(TAB)));
     public static final RegistryObject<Item> WISTERIA_LEAVES = ITEMS.register("wisteria_leaves", () -> new Item(common));
     public static final RegistryObject<Item> GROUND_WISTERIA = ITEMS.register("ground_wisteria", () -> new Item(common));
-    public static final RegistryObject<Item> GOLDEN_PUREE = ITEMS.register("golden_puree", () -> new DrinkableItem(drinkableFoodItem(golden_puree)));
-    public static final RegistryObject<Item> OXYGELIUM_BULB = ITEMS.register("oxygelium_bulbs", () -> new Item(foodItem(oxygelium_bulb)));
+    public static final RegistryObject<Item> GOLDEN_PUREE = ITEMS.register("golden_puree", () -> new DrinkableItem(drinkableFoodItem(golden_puree).tab(TAB)));
+    public static final RegistryObject<Item> OXYGELIUM_BULB = ITEMS.register("oxygelium_bulbs", () -> new Item(foodItem(oxygelium_bulb).tab(TAB)));
 
-    public static final RegistryObject<Item> SPINEFISH_ROLL = ITEMS.register("spinefish_roll", () -> new Item(foodItem(spinefish_roll)));
-    public static final RegistryObject<Item> SPINEFISH_KELP_ROLL = ITEMS.register("spinefish_kelp_roll", () -> new KelpRollItem(foodItem(FoodValues.KELP_ROLL)));
-    public static final RegistryObject<Item> SPINEFISH_KELP_ROLL_SLICE = ITEMS.register("spinefish_kelp_roll_slice", () -> new Item(foodItem(FoodValues.KELP_ROLL_SLICE)));
+    public static final RegistryObject<Item> SPINEFISH_ROLL = ITEMS.register("spinefish_roll", () -> new Item(foodItem(spinefish_roll).tab(TAB)));
+    public static final RegistryObject<Item> SPINEFISH_KELP_ROLL = ITEMS.register("spinefish_kelp_roll", () -> new KelpRollItem(foodItem(FoodValues.KELP_ROLL).tab(TAB)));
+    public static final RegistryObject<Item> SPINEFISH_KELP_ROLL_SLICE = ITEMS.register("spinefish_kelp_roll_slice", () -> new Item(foodItem(FoodValues.KELP_ROLL_SLICE).tab(TAB)));
 
     public static final RegistryObject<Block> AQUATIC_FEAST = BLOCKS.register("aquatic_feast", () -> new AquaticFeastBlock(BlockBehaviour.Properties.copy(Blocks.CAKE)));
-    public static final RegistryObject<Item> AQUATIC_FEAST_ITEM = ITEMS.register("aquatic_feast", () -> new BlockItem((Block) AQUATIC_FEAST.get(), basicItem()));
+    public static final RegistryObject<Item> AQUATIC_FEAST_ITEM = ITEMS.register("aquatic_feast", () -> new BlockItem((Block) AQUATIC_FEAST.get(), basicItem().tab(TAB)));
 
-    public static final RegistryObject<Item> DEEPSEA_PIE_SLICE = ITEMS.register("deepsea_pie_slice", () -> new Item(foodItem(FoodValues.PIE_SLICE)));
+    public static final RegistryObject<Item> DEEPSEA_PIE_SLICE = ITEMS.register("deepsea_pie_slice", () -> new Item(foodItem(FoodValues.PIE_SLICE).tab(TAB)));
     public static final RegistryObject<Block> DEEPSEA_PIE = BLOCKS.register("deepsea_pie", () -> new PieBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), DEEPSEA_PIE_SLICE));
-    public static final RegistryObject<Item> DEEPSEA_PIE_ITEM = ITEMS.register("deepsea_pie", () -> new BlockItem((Block) DEEPSEA_PIE.get(), basicItem()));
-    public static final RegistryObject<Item> FISHERMANS_DELICACY_SLICE = ITEMS.register("fishermans_delicacy_slice", () -> new Item(foodItem(BREAD_SLICE)));
+    public static final RegistryObject<Item> DEEPSEA_PIE_ITEM = ITEMS.register("deepsea_pie", () -> new BlockItem((Block) DEEPSEA_PIE.get(), basicItem().tab(TAB)));
+    public static final RegistryObject<Item> FISHERMANS_DELICACY_SLICE = ITEMS.register("fishermans_delicacy_slice", () -> new Item(foodItem(BREAD_SLICE).tab(TAB)));
     public static final RegistryObject<Block> FISHERMANS_DELICACY = BLOCKS.register("fishermans_delicacy", () -> new BreadFoodBlock(BlockBehaviour.Properties.copy(Blocks.CAKE), FISHERMANS_DELICACY_SLICE));
-    public static final RegistryObject<Item> FISHERMANS_DELICACY_ITEM = ITEMS.register("fishermans_delicacy", () -> new BlockItem((Block) FISHERMANS_DELICACY.get(), basicItem()));
-    public static final RegistryObject<Item> ANGLED_KEBAB = ITEMS.register("angled_kebab", () -> new Item(foodItem(angled_kebab)));
+    public static final RegistryObject<Item> FISHERMANS_DELICACY_ITEM = ITEMS.register("fishermans_delicacy", () -> new BlockItem((Block) FISHERMANS_DELICACY.get(), basicItem().tab(TAB)));
+    public static final RegistryObject<Item> ANGLED_KEBAB = ITEMS.register("angled_kebab", () -> new Item(foodItem(angled_kebab).tab(TAB)));
 
-    public static final RegistryObject<Item> GLAZED_GRILLED_SPINEFISH = ITEMS.register("glazed_grilled_spinefish", () -> new Item(foodItem(glazed_grilled_spinefish)));
-    public static final RegistryObject<Item> GOLDEN_PUREE_PASTA = ITEMS.register("golden_puree_pasta", () -> new Item(foodItem(golden_puree_pasta)));
-    public static final RegistryObject<Item> ABYSSAL_RISOTTO = ITEMS.register("abyssal_risotto", () -> new Item(foodItem(abyssal_risotto)));
-    public static final RegistryObject<Item> SPINEFISH_ALFREDO = ITEMS.register("spinefish_alfredo", () -> new Item(foodItem(spinefish_alfredo)));
-    public static final RegistryObject<Item> ESCAGELIUM_SOUP = ITEMS.register("escagelium_soup", () -> new ConsumableItem(bowlFoodItem(escagelium_soup)));
-    public static final RegistryObject<Item> ANGLERS_SOUP = ITEMS.register("anglers_soup", () -> new ConsumableItem(bowlFoodItem(anglers_soup)));
+    public static final RegistryObject<Item> GLAZED_GRILLED_SPINEFISH = ITEMS.register("glazed_grilled_spinefish", () -> new Item(foodItem(glazed_grilled_spinefish).tab(TAB)));
+    public static final RegistryObject<Item> GOLDEN_PUREE_PASTA = ITEMS.register("golden_puree_pasta", () -> new Item(foodItem(golden_puree_pasta).tab(TAB)));
+    public static final RegistryObject<Item> ABYSSAL_RISOTTO = ITEMS.register("abyssal_risotto", () -> new Item(foodItem(abyssal_risotto).tab(TAB)));
+    public static final RegistryObject<Item> SPINEFISH_ALFREDO = ITEMS.register("spinefish_alfredo", () -> new Item(foodItem(spinefish_alfredo).tab(TAB)));
+    public static final RegistryObject<Item> ESCAGELIUM_SOUP = ITEMS.register("escagelium_soup", () -> new ConsumableItem(bowlFoodItem(escagelium_soup).tab(TAB)));
+    public static final RegistryObject<Item> ANGLERS_SOUP = ITEMS.register("anglers_soup", () -> new ConsumableItem(bowlFoodItem(anglers_soup).tab(TAB)));
 
-    public static final RegistryObject<CreativeModeTab> AQUAMIRAE_DELIGHT_TAB = CREATIVE_TABS.register("example", () -> CreativeModeTab.builder()
-            .title(Component.translatable("creative_tab." + MODID))
-            .icon(() -> new ItemStack(GLAZED_GRILLED_SPINEFISH.get()))
-            .displayItems((params, output) -> {
-                output.accept(SEPARATOR.get());
-                output.accept(FIN_FILLETER.get());
-                output.accept(REMNANTS_KNIFE.get());
-                output.accept(SPINEFISH_SLICE.get());
-                output.accept(COOKED_SPINEFISH_SLICE.get());
-                output.accept(GROUND_WISTERIA.get());
-                output.accept(WISTERIA_LEAVES.get());
-                output.accept(GOLDEN_PUREE.get());
-                output.accept(OXYGELIUM_BULB.get());
-
-                output.accept(SPINEFISH_ROLL.get());
-                output.accept(SPINEFISH_KELP_ROLL.get());
-                output.accept(SPINEFISH_KELP_ROLL_SLICE.get());
-                output.accept(AQUATIC_FEAST_ITEM.get());
-                output.accept(DEEPSEA_PIE_ITEM.get());
-                output.accept(DEEPSEA_PIE_SLICE.get());
-                output.accept(FISHERMANS_DELICACY_ITEM.get());
-                output.accept(FISHERMANS_DELICACY_SLICE.get());
-                output.accept(ANGLED_KEBAB.get());
-
-                output.accept(GLAZED_GRILLED_SPINEFISH.get());
-                output.accept(GOLDEN_PUREE_PASTA.get());
-                output.accept(ABYSSAL_RISOTTO.get());
-                output.accept(SPINEFISH_ALFREDO.get());
-                output.accept(ESCAGELIUM_SOUP.get());
-                output.accept(ANGLERS_SOUP.get());
-            })
-            .build()
-    );
 
     public AquamiraeDelight(FMLJavaModLoadingContext context) {
         var modEventBus = context.getModEventBus();
         ITEMS.register(modEventBus);
         BLOCKS.register(modEventBus);
         EFFECTS.register(modEventBus);
-        CREATIVE_TABS.register(modEventBus);
         PARTICLES.register(modEventBus);
         ENTITY_TYPES_OVERRIDE.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);

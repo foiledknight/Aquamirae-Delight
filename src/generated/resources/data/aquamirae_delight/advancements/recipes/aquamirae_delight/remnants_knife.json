@@ -6,32 +6,17 @@
         "items": [
           {
             "items": [
-              "aquamirae:cooked_spinefish"
+              "aquamirae:sharp_bones"
             ]
           },
           {
             "items": [
-              "aquamirae_delight:wisteria_leaves"
+              "minecraft:leather"
             ]
           },
           {
             "items": [
-              "aquamirae:anglers_fang"
-            ]
-          },
-          {
-            "items": [
-              "farmersdelight:tomato"
-            ]
-          },
-          {
-            "items": [
-              "farmersdelight:onion"
-            ]
-          },
-          {
-            "items": [
-              "minecraft:bread"
+              "minecraft:stick"
             ]
           }
         ]
@@ -40,7 +25,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aquamirae_delight:fishermans_delicacy"
+        "recipe": "aquamirae_delight:remnants_knife"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -53,8 +38,7 @@
   ],
   "rewards": {
     "recipes": [
-      "aquamirae_delight:fishermans_delicacy"
+      "aquamirae_delight:remnants_knife"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

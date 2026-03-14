@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "group": "aqd_fishermans_delicacy",
   "key": {
     "S": {
@@ -13,6 +12,5 @@
   ],
   "result": {
     "item": "aquamirae_delight:fishermans_delicacy"
-  },
-  "show_notification": true
+  }
 }

@@ -6,22 +6,32 @@
         "items": [
           {
             "items": [
-              "aquamirae:fin"
+              "aquamirae:cooked_spinefish"
             ]
           },
           {
             "items": [
-              "minecraft:diamond"
+              "aquamirae_delight:wisteria_leaves"
             ]
           },
           {
             "items": [
-              "minecraft:stick"
+              "aquamirae:anglers_fang"
             ]
           },
           {
             "items": [
-              "aquamirae:ship_graveyard_echo"
+              "farmersdelight:tomato"
+            ]
+          },
+          {
+            "items": [
+              "farmersdelight:onion"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:bread"
             ]
           }
         ]
@@ -30,7 +40,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aquamirae_delight:fin_filleter"
+        "recipe": "aquamirae_delight:fishermans_delicacy"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -43,8 +53,7 @@
   ],
   "rewards": {
     "recipes": [
-      "aquamirae_delight:fin_filleter"
+      "aquamirae_delight:fishermans_delicacy"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

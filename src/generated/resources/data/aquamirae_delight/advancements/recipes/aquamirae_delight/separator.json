@@ -6,12 +6,17 @@
         "items": [
           {
             "items": [
-              "aquamirae:sharp_bones"
+              "aquamirae:abyssal_amethyst"
             ]
           },
           {
             "items": [
-              "minecraft:leather"
+              "aquamirae:ship_graveyard_echo"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:netherite_ingot"
             ]
           },
           {
@@ -25,7 +30,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aquamirae_delight:remnants_knife"
+        "recipe": "aquamirae_delight:separator"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -38,8 +43,7 @@
   ],
   "rewards": {
     "recipes": [
-      "aquamirae_delight:remnants_knife"
+      "aquamirae_delight:separator"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

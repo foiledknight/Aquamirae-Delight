@@ -6,10 +6,13 @@
         "items": [
           {
             "items": [
+              "minecraft:baked_potato",
               "aquamirae:esca",
+              "aquamirae:cooked_spinefish",
+              "aquamirae_delight:cooked_spinefish_slice",
+              "aquamirae:oxygelium",
               "aquamirae:fin",
-              "aquamirae_delight:oxygelium_bulbs",
-              "aquamirae_delight:wisteria_leaves"
+              "minecraft:pufferfish"
             ]
           }
         ]
@@ -18,7 +21,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aquamirae_delight:cooking/escagelium_soup"
+        "recipe": "aquamirae_delight:cooking/sea_stew"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -31,8 +34,7 @@
   ],
   "rewards": {
     "recipes": [
-      "aquamirae_delight:cooking/escagelium_soup"
+      "aquamirae_delight:cooking/sea_stew"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

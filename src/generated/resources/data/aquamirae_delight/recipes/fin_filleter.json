@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "A": {
       "item": "aquamirae:ship_graveyard_echo"
@@ -21,6 +20,5 @@
   ],
   "result": {
     "item": "aquamirae_delight:fin_filleter"
-  },
-  "show_notification": true
+  }
 }

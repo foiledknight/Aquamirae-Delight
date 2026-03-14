@@ -1,5 +1,5 @@
 package womp.tinfoilknight.aquamirae_delight.datagen;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -8,8 +8,9 @@ import womp.tinfoilknight.aquamirae_delight.AquamiraeDelight;
 
 public class AQDItemModels extends ItemModelProvider {
 
-    public AQDItemModels(PackOutput output, ExistingFileHelper helper) {
-        super(output, AquamiraeDelight.MODID, helper);
+
+    public AQDItemModels(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+        super(generator, AquamiraeDelight.MODID, existingFileHelper);
     }
 
     @Override

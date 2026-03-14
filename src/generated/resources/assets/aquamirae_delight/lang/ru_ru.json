@@ -8,7 +8,7 @@
   "class.aquamirae.sea_wolf_tool": "Инструмент морского волка",
   "creative_tab.aquamirae_delight": "Aquamirae Delight",
   "effect.aquamirae_delight.health_decrease": "Снижение скорости",
-  "entity.minecraft.pig": "Золотистая моль",
+  "entity.aquamirae.golden_moth": "Золотистая моль",
   "item.aquamirae_delight.abyssal_risotto": "Ризотто Бездны",
   "item.aquamirae_delight.angled_kebab": "Шашлык из Удильщика",
   "item.aquamirae_delight.anglers_soup": "Суп из Удильщика",
@@ -29,5 +29,6 @@
   "item.aquamirae_delight.spinefish_kelp_roll_slice": "Ломтик Ролла из Ламинарии с Хребеточником",
   "item.aquamirae_delight.spinefish_roll": "Ролл из Хребеточника",
   "item.aquamirae_delight.spinefish_slice": "Ломтик Хребеточника",
-  "item.aquamirae_delight.wisteria_leaves": "Листья Вистерии"
+  "item.aquamirae_delight.wisteria_leaves": "Листья Вистерии",
+  "itemGroup.aquamirae_delight": "Aquamirae Delight"
 }

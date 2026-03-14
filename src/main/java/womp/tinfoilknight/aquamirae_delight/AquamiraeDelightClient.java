@@ -25,7 +25,7 @@ public class AquamiraeDelightClient {
     }
     @SubscribeEvent
     public static void registerParticles(RegisterParticleProvidersEvent event) {
-        event.registerSpriteSet(AquamiraeDelight.SHINE_HEART.get(), ShineHeartParticle::provider);
+        event.register(AquamiraeDelight.SHINE_HEART.get(), ShineHeartParticle::provider);
     }
     public static final ModelLayerLocation GOLDEN_MOTH_LAYERS = registerModelLayer("golden_moth");
     @SubscribeEvent

@@ -1,16 +1,17 @@
 package womp.tinfoilknight.aquamirae_delight.datagen;
 
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 import womp.tinfoilknight.aquamirae_delight.AquamiraeDelight;
 
 public class AQDLang_RU_RU extends LanguageProvider {
-    public AQDLang_RU_RU(PackOutput output, String locale) {
-        super(output, AquamiraeDelight.MODID, locale);
+    public AQDLang_RU_RU(DataGenerator gen) {
+        super(gen, AquamiraeDelight.MODID, "ru_ru");
     }
 
     protected void addTranslations() {
         add("creative_tab.aquamirae_delight", "Aquamirae Delight");
+        add("itemGroup.aquamirae_delight", "Aquamirae Delight");
         addItem(AquamiraeDelight.SEPARATOR, "Отсекатель");
         addItem(AquamiraeDelight.FIN_FILLETER, "Плавниковый Филерез");
         addItem(AquamiraeDelight.REMNANTS_KNIFE, "Мёртвый нож");

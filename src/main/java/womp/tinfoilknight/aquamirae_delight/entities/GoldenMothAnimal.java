@@ -14,7 +14,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -69,7 +68,7 @@ public class GoldenMothAnimal extends Animal implements FlyingAnimal {
 
     @Override
     public boolean isFlying() {
-        return !this.onGround();
+        return !this.onGround;
     }
 
     /// END END END END END END END END END END
@@ -117,16 +116,16 @@ public class GoldenMothAnimal extends Animal implements FlyingAnimal {
 
     public boolean hurt(DamageSource source, float amount) {
         if (!(source.getDirectEntity() instanceof ThrownPotion) && !(source.getDirectEntity() instanceof AreaEffectCloud)) {
-            if (source.is(DamageTypes.FALL)) {
+            if (source == DamageSource.FALL) {
                 return false;
-            } else if (source.is(DamageTypes.CACTUS)) {
+            } else if (source == DamageSource.CACTUS) {
                 return false;
-            } else if (source.is(DamageTypes.DROWN)) {
+            } else if (source == DamageSource.DROWN) {
                 return false;
-            } else if (source.is(DamageTypes.LIGHTNING_BOLT)) {
+            } else if (source == DamageSource.LIGHTNING_BOLT) {
                 return false;
             } else {
-                Level var4 = this.level();
+                Level var4 = this.level;
                 if (var4 instanceof ServerLevel) {
                     ServerLevel server = (ServerLevel) var4;
                     server.sendParticles((SimpleParticleType) AquamiraeParticleTypes.SHINE.get(), this.getX(), this.getY(), this.getZ(), 6, 0.05, 0.05, 0.05, 0.8);
@@ -144,23 +143,23 @@ public class GoldenMothAnimal extends Animal implements FlyingAnimal {
         ItemStack stack = player.getItemInHand(hand);
         if (stack.getItem() == Items.GLASS_BOTTLE && !this.isBaby()) {
             stack.shrink(1);
-            if (!this.level().isClientSide()) {
-                this.level().playSound((Player) null, this.blockPosition(), (SoundEvent) AquamiraeSounds.ENTITY_GOLDEN_MOTH_CATCH.get(), SoundSource.AMBIENT, 1.0F, 1.0F);
-                ItemEntity item = new ItemEntity(this.level(), this.getX(), this.getY(), this.getZ(), new ItemStack((ItemLike) AquamiraeBlocks.GOLDEN_MOTH_IN_A_JAR.get()));
+            if (!this.level.isClientSide()) {
+                this.level.playSound((Player) null, this.blockPosition(), (SoundEvent) AquamiraeSounds.ENTITY_GOLDEN_MOTH_CATCH.get(), SoundSource.AMBIENT, 1.0F, 1.0F);
+                ItemEntity item = new ItemEntity(this.level, this.getX(), this.getY(), this.getZ(), new ItemStack((ItemLike) AquamiraeBlocks.GOLDEN_MOTH_IN_A_JAR.get()));
                 item.setPickUpDelay(10);
-                this.level().addFreshEntity(item);
+                this.level.addFreshEntity(item);
                 this.discard();
             }
         }
 
-        return InteractionResult.sidedSuccess(this.level().isClientSide());
+        return InteractionResult.sidedSuccess(this.level.isClientSide());
     }
 
     public void baseTick() {
         this.getPersistentData().putDouble("shine", this.getPersistentData().getDouble("shine") + (double) 1.0F);
         if (this.getPersistentData().getDouble("shine") > (double) 2.0F) {
             this.getPersistentData().putDouble("shine", (double) 0.0F);
-            Level var2 = this.level();
+            Level var2 = this.level;
             if (var2 instanceof ServerLevel) {
                 if (this.isInLove()) {
                     ServerLevel server = (ServerLevel) var2;

@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "A": {
       "item": "aquamirae_delight:spinefish_roll"
@@ -22,6 +21,5 @@
   ],
   "result": {
     "item": "aquamirae_delight:aquatic_feast"
-  },
-  "show_notification": true
+  }
 }

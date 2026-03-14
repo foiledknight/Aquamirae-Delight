@@ -149,16 +149,14 @@ dependencies {
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
     //REQUIRED DEPENDENCIES
-    implementation fg.deobf("curse.maven:farmers-delight-398521:6917255")
-    implementation fg.deobf("curse.maven:ob-aquamirae-536254:7165722")
-    implementation fg.deobf("curse.maven:obscure-api-638417:7171906")
-    //AQUAMIRAE DELIGHT
-    compileOnly fg.deobf("curse.maven:aquamirae-delight-1094104:6169315")
+    implementation fg.deobf("curse.maven:farmers-delight-398521:5051241")
+    implementation fg.deobf("curse.maven:aquamirae-536254:4522264")
+    implementation fg.deobf("curse.maven:obscure-api-638417:4522272")
     //OPTIONAL DEPENDENCIES
-    implementation fg.deobf("curse.maven:appleskin-248787:4770828")
-    implementation fg.deobf("curse.maven:tooltips-txf-1168149:7026752")
-    implementation fg.deobf("curse.maven:jei-238222:7270446")
-    implementation fg.deobf("curse.maven:jade-324717:6855440")
+    implementation fg.deobf("curse.maven:appleskin-248787:3872808")
+    implementation fg.deobf("curse.maven:tooltips-txf-1168149:7026730")
+    implementation fg.deobf("curse.maven:jei-238222:5846858")
+    implementation fg.deobf("curse.maven:jade-324717:4914105")
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")

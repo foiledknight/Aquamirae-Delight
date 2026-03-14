@@ -1,17 +1,25 @@
 {
-  "type": "farmersdelight:cutting",
-  "ingredients": [
-    {
-      "item": "aquamirae_delight:spinefish_kelp_roll"
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": {
+      "tag": "forge:crops/cabbage"
+    },
+    "B": {
+      "item": "farmersdelight:cooked_rice"
+    },
+    "C": {
+      "tag": "forge:cooked_fishes/spinefish"
+    },
+    "D": {
+      "item": "minecraft:dried_kelp"
     }
+  },
+  "pattern": [
+    " A ",
+    "BCB",
+    "DDD"
   ],
-  "result": [
-    {
-      "count": 3,
-      "item": "aquamirae_delight:spinefish_kelp_roll_slice"
-    }
-  ],
-  "tool": {
-    "tag": "forge:tools/knives"
+  "result": {
+    "item": "aquamirae_delight:spinefish_kelp_roll"
   }
 }

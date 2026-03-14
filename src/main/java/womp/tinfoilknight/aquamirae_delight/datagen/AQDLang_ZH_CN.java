@@ -1,16 +1,17 @@
 package womp.tinfoilknight.aquamirae_delight.datagen;
 
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 import womp.tinfoilknight.aquamirae_delight.AquamiraeDelight;
 
 public class AQDLang_ZH_CN extends LanguageProvider {
-    public AQDLang_ZH_CN(PackOutput output, String locale) {
-        super(output, AquamiraeDelight.MODID, locale);
+    public AQDLang_ZH_CN(DataGenerator gen) {
+        super(gen, AquamiraeDelight.MODID, "zh_cn");
     }
 
     protected void addTranslations() {
         add("creative_tab.aquamirae_delight", "海灵乐事");
+        add("itemGroup.aquamirae_delight", "海灵乐事");
         addItem(AquamiraeDelight.SEPARATOR, "隔离器");
         addItem(AquamiraeDelight.FIN_FILLETER, "鳍片切片机");
         addItem(AquamiraeDelight.REMNANTS_KNIFE, "残刀");

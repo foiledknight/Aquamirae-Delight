@@ -1,12 +1,17 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "golden_puree": {
+    "has_any_ingredient": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aquamirae:golden_moth_in_a_jar"
+              "aquamirae:spinefish",
+              "aquamirae_delight:spinefish_slice",
+              "farmersdelight:raw_pasta",
+              "minecraft:milk_bucket",
+              "farmersdelight:milk_bottle",
+              "aquamirae_delight:oxygelium_bulbs"
             ]
           }
         ]
@@ -15,21 +20,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aquamirae_delight:golden_puree"
+        "recipe": "aquamirae_delight:cooking/spinefish_alfredo"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "golden_puree",
+      "has_any_ingredient",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "aquamirae_delight:golden_puree"
+      "aquamirae_delight:cooking/spinefish_alfredo"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

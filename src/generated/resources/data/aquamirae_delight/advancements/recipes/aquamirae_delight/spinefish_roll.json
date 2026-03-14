@@ -1,12 +1,17 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_fishermans_delicacy_slice": {
+    "has_item": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aquamirae_delight:fishermans_delicacy_slice"
+              "aquamirae_delight:spinefish_slice"
+            ]
+          },
+          {
+            "items": [
+              "farmersdelight:cooked_rice"
             ]
           }
         ]
@@ -15,21 +20,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aquamirae_delight:fishermans_delicacy_from_slices"
+        "recipe": "aquamirae_delight:spinefish_roll"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_fishermans_delicacy_slice",
+      "has_item",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "aquamirae_delight:fishermans_delicacy_from_slices"
+      "aquamirae_delight:spinefish_roll"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

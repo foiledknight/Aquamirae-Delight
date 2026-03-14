@@ -6,12 +6,12 @@
         "items": [
           {
             "items": [
-              "aquamirae:anglers_fang",
-              "aquamirae:cooked_spinefish",
-              "aquamirae_delight:cooked_spinefish_slice",
-              "farmersdelight:tomato",
+              "farmersdelight:rice",
               "farmersdelight:onion",
-              "farmersdelight:rice"
+              "aquamirae:spinefish",
+              "aquamirae_delight:spinefish_slice",
+              "aquamirae:abyssal_amethyst",
+              "aquamirae_delight:wisteria_leaves"
             ]
           }
         ]
@@ -20,7 +20,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aquamirae_delight:cooking/anglers_soup"
+        "recipe": "aquamirae_delight:cooking/abyssal_risotto"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -33,8 +33,7 @@
   ],
   "rewards": {
     "recipes": [
-      "aquamirae_delight:cooking/anglers_soup"
+      "aquamirae_delight:cooking/abyssal_risotto"
     ]
-  },
-  "sends_telemetry_event": true
+  }
 }

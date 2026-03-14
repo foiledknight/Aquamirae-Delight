@@ -30,6 +30,5 @@
     "recipes": [
       "aquamirae_delight:spinefish_slice_from_campfire_cooking"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

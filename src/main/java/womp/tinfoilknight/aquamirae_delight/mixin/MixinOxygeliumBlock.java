@@ -45,7 +45,7 @@ public abstract class MixinOxygeliumBlock {
             entity.setAirSupply(0);
             entity.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, (entity.hasEffect(MobEffects.WATER_BREATHING) ? ((MobEffectInstance) Objects.requireNonNull(entity.getEffect(MobEffects.WATER_BREATHING))).getDuration() : 0) + 200, 0));
             if (!world.isClientSide() && entity.hasEffect(MobEffects.WATER_BREATHING) && ((MobEffectInstance) Objects.requireNonNull(entity.getEffect(MobEffects.WATER_BREATHING))).getDuration() > 1200) {
-                world.playSound((Player) null, pos, (SoundEvent) SoundEvents.AMBIENT_CAVE.get(), SoundSource.BLOCKS, 1.0F, 1.0F);
+                world.playSound((Player) null, pos, (SoundEvent) SoundEvents.AMBIENT_CAVE, SoundSource.BLOCKS, 1.0F, 1.0F);
                 entity.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 1));
             }
         }

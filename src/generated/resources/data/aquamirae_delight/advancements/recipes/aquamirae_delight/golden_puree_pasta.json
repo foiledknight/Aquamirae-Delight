@@ -1,12 +1,14 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_deepsea_pie_slice": {
+    "has_any_ingredient": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aquamirae_delight:deepsea_pie_slice"
+              "aquamirae_delight:golden_puree",
+              "farmersdelight:raw_pasta",
+              "aquamirae_delight:ground_wisteria"
             ]
           }
         ]
@@ -15,21 +17,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aquamirae_delight:deepsea_pie_from_slices"
+        "recipe": "aquamirae_delight:golden_puree_pasta"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_deepsea_pie_slice",
+      "has_any_ingredient",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "aquamirae_delight:deepsea_pie_from_slices"
+      "aquamirae_delight:golden_puree_pasta"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

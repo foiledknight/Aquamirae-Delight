@@ -12,6 +12,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.Item;
 import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.item.KnifeItem;
+import womp.tinfoilknight.aquamirae_delight.AquamiraeDelight;
 
 import java.util.UUID;
 
@@ -23,7 +24,7 @@ public class RemnantsKnife extends KnifeItem {
     @ClassAbility
     public final Ability ABILITY = Ability.create("aquamirae_delight", "remnants_knife").var(25, "%").build(RemnantsKnife.class);
     public RemnantsKnife() {
-        super(AquamiraeDelightTiers.REMNANTS_KNIFE, 3, -2.0F, new Item.Properties());
+        super(AquamiraeDelightTiers.REMNANTS_KNIFE, 3, -2.0F, new Item.Properties().tab(AquamiraeDelight.TAB));
     }
 
     public @NotNull Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NotNull EquipmentSlot slot) {

@@ -36,7 +36,7 @@ public class Separator extends KnifeItem {
     }).build(Separator.class);
 
     public Separator() {
-        super(AquamiraeDelightTiers.SEPERATOR, 3, -2.6F, (new Item.Properties()).fireResistant().rarity(Rarity.EPIC));
+        super(AquamiraeDelightTiers.SEPERATOR, 3, -2.6F, (new Item.Properties()).fireResistant().rarity(Rarity.EPIC).tab(AquamiraeDelight.TAB));
     }
 
     public boolean hurtEnemy(@NotNull ItemStack stack, @NotNull LivingEntity entity, @NotNull LivingEntity source) {

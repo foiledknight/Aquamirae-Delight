@@ -1,22 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_item": {
+    "has_deepsea_pie_slice": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aquamirae_delight:oxygelium_bulbs"
-            ]
-          },
-          {
-            "items": [
-              "aquamirae:anglers_fang"
-            ]
-          },
-          {
-            "items": [
-              "aquamirae:spinefish"
+              "aquamirae_delight:deepsea_pie_slice"
             ]
           }
         ]
@@ -25,21 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aquamirae_delight:angled_kebab"
+        "recipe": "aquamirae_delight:deepsea_pie_from_slices"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_item",
+      "has_deepsea_pie_slice",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "aquamirae_delight:angled_kebab"
+      "aquamirae_delight:deepsea_pie_from_slices"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

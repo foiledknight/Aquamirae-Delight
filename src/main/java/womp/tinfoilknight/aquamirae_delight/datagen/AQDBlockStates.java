@@ -1,7 +1,7 @@
 package womp.tinfoilknight.aquamirae_delight.datagen;
 
 import net.minecraft.core.Direction;
-import net.minecraft.data.PackOutput;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
@@ -16,8 +16,10 @@ import womp.tinfoilknight.aquamirae_delight.AquamiraeDelight;
 import womp.tinfoilknight.aquamirae_delight.blocks.BreadFoodBlock;
 
 public class AQDBlockStates extends BlockStateProvider {
-    public AQDBlockStates(PackOutput output, ExistingFileHelper existingFileHelper) {
-        super(output, AquamiraeDelight.MODID, existingFileHelper);
+
+
+    public AQDBlockStates(DataGenerator gen, ExistingFileHelper exFileHelper) {
+        super(gen, AquamiraeDelight.MODID, exFileHelper);
     }
 
     private String blockName(Block block) {

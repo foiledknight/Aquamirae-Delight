@@ -1,17 +1,29 @@
 {
-  "type": "farmersdelight:cutting",
-  "ingredients": [
-    {
-      "item": "aquamirae_delight:deepsea_pie"
+  "type": "minecraft:crafting_shaped",
+  "group": "aqd_deepsea_pie",
+  "key": {
+    "A": {
+      "item": "aquamirae_delight:ground_wisteria"
+    },
+    "B": {
+      "item": "aquamirae:fin"
+    },
+    "C": {
+      "item": "aquamirae_delight:golden_puree"
+    },
+    "D": {
+      "tag": "forge:cooked_fishes/spinefish"
+    },
+    "E": {
+      "item": "farmersdelight:pie_crust"
     }
+  },
+  "pattern": [
+    "ABA",
+    "CDC",
+    "DED"
   ],
-  "result": [
-    {
-      "count": 4,
-      "item": "aquamirae_delight:deepsea_pie_slice"
-    }
-  ],
-  "tool": {
-    "tag": "forge:tools/knives"
+  "result": {
+    "item": "aquamirae_delight:deepsea_pie"
   }
 }

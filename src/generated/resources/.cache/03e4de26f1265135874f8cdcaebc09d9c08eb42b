@@ -1,7 +1,4 @@
-// 1.20.1	2025-12-04T21:13:37.1353986	Tags for minecraft:item mod id aquamirae_delight
-135080b9931a62ebd9eeca86fad6a46b4ce37fc1 data/farmersdelight/tags/items/drinks.json
-8c7df8a6a215784569393cf32b0875c088b36111 data/farmersdelight/tags/items/feasts.json
-a01b2193247001413e702e2b326c4589c1b588cf data/farmersdelight/tags/items/meals.json
+// 1.19.2	2026-03-14T15:19:11.9030683	Tags for minecraft:item
 31f4b0d25b3722b081b4e6d31a19f01399751b56 data/farmersdelight/tags/items/tools/knives.json
 3f09aa23c0194393c781f09535d5c054124f3fea data/forge/tags/items/cooked_fishes.json
 ec8308cf4d3afb2db12c38556512af970ee42ef7 data/forge/tags/items/cooked_fishes/spinefish.json

@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "equipment",
   "key": {
     "A": {
       "item": "aquamirae:ship_graveyard_echo"
@@ -22,6 +21,5 @@
   ],
   "result": {
     "item": "aquamirae_delight:separator"
-  },
-  "show_notification": true
+  }
 }

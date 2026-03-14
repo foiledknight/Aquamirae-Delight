@@ -8,7 +8,7 @@
   "class.aquamirae.sea_wolf_tool": "海狼工具",
   "creative_tab.aquamirae_delight": "海灵乐事",
   "effect.aquamirae_delight.health_decrease": "减速",
-  "entity.minecraft.pig": "金蛾",
+  "entity.aquamirae.golden_moth": "金蛾",
   "item.aquamirae_delight.abyssal_risotto": "深海烩饭",
   "item.aquamirae_delight.angled_kebab": "鮟鱇烤肉串",
   "item.aquamirae_delight.anglers_soup": "垂钓者之汤",
@@ -29,5 +29,6 @@
   "item.aquamirae_delight.spinefish_kelp_roll_slice": "棘鱼海苔卷切片",
   "item.aquamirae_delight.spinefish_roll": "棘鱼寿司",
   "item.aquamirae_delight.spinefish_slice": "生棘鱼片",
-  "item.aquamirae_delight.wisteria_leaves": "紫藤叶"
+  "item.aquamirae_delight.wisteria_leaves": "紫藤叶",
+  "itemGroup.aquamirae_delight": "海灵乐事"
 }

@@ -1,17 +1,32 @@
 {
-  "type": "farmersdelight:cutting",
+  "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "aquamirae_delight:fishermans_delicacy"
-    }
-  ],
-  "result": [
+      "tag": "forge:cooked_chicken"
+    },
     {
-      "count": 6,
-      "item": "aquamirae_delight:fishermans_delicacy_slice"
+      "tag": "forge:crops/tomato"
+    },
+    {
+      "tag": "forge:crops/onion"
+    },
+    {
+      "tag": "forge:cooked_fishes/spinefish"
+    },
+    {
+      "item": "aquamirae:anglers_fang"
+    },
+    {
+      "tag": "forge:cooked_fishes/spinefish"
+    },
+    {
+      "item": "aquamirae_delight:wisteria_leaves"
+    },
+    {
+      "item": "minecraft:bread"
     }
   ],
-  "tool": {
-    "tag": "forge:tools/knives"
+  "result": {
+    "item": "aquamirae_delight:fishermans_delicacy"
   }
 }

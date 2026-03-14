@@ -6,17 +6,27 @@
         "items": [
           {
             "items": [
-              "aquamirae_delight:spinefish_roll"
+              "aquamirae:cooked_spinefish"
             ]
           },
           {
             "items": [
-              "aquamirae_delight:spinefish_kelp_roll_slice"
+              "aquamirae_delight:oxygelium_bulbs"
             ]
           },
           {
             "items": [
-              "aquamirae_delight:fishermans_delicacy_slice"
+              "aquamirae_delight:wisteria_leaves"
+            ]
+          },
+          {
+            "items": [
+              "aquamirae_delight:golden_puree"
+            ]
+          },
+          {
+            "items": [
+              "farmersdelight:onion"
             ]
           }
         ]
@@ -25,7 +35,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aquamirae_delight:aquatic_feast"
+        "recipe": "aquamirae_delight:glazed_grilled_spinefish"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -38,8 +48,7 @@
   ],
   "rewards": {
     "recipes": [
-      "aquamirae_delight:aquatic_feast"
+      "aquamirae_delight:glazed_grilled_spinefish"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

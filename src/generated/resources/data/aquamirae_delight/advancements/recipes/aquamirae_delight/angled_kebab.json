@@ -1,12 +1,22 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "golden_puree": {
+    "has_item": {
       "conditions": {
         "items": [
           {
             "items": [
-              "aquamirae:golden_moth_in_a_jar"
+              "aquamirae_delight:oxygelium_bulbs"
+            ]
+          },
+          {
+            "items": [
+              "aquamirae:anglers_fang"
+            ]
+          },
+          {
+            "items": [
+              "aquamirae:spinefish"
             ]
           }
         ]
@@ -15,21 +25,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "aquamirae_delight:golden_puree_from_smoking"
+        "recipe": "aquamirae_delight:angled_kebab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "golden_puree",
+      "has_item",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "aquamirae_delight:golden_puree_from_smoking"
+      "aquamirae_delight:angled_kebab"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
