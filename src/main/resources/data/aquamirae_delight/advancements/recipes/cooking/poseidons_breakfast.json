@@ -1,0 +1,41 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_any_ingredient": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:inc_sac",
+              "minecraft:sea_pickle",
+              "minecraft:nautilus_shell",
+              "minecraft:tropical_fish",
+              "minecraft:enchanted_golden_apple",
+              "minecraft:pufferfish",
+              "aquamirae:sea_stew"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "aquamirae_delight:cooking/poseidons_breakfast"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_any_ingredient",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "aquamirae_delight:cooking/poseidons_breakfast"
+    ]
+  },
+  "sends_telemetry_event": true
+}

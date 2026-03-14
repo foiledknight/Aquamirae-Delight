@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "aquamirae:ship_graveyard_echo"
+    },
+    "B": {
+      "item": "aquamirae:abyssal_amethyst"
+    },
+    "C": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "D": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "  A",
+    "BC ",
+    "DB "
+  ],
+  "result": {
+    "item": "aquamirae_delight:separator"
+  },
+  "show_notification": true
+}

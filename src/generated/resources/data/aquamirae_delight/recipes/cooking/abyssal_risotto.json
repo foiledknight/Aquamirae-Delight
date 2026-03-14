@@ -1,0 +1,26 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "aquamirae:abyssal_amethyst"
+    },
+    {
+      "tag": "forge:raw_fishes/spinefish"
+    },
+    {
+      "item": "aquamirae_delight:wisteria_leaves"
+    },
+    {
+      "tag": "forge:crops/onion"
+    },
+    {
+      "tag": "forge:crops/rice"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "aquamirae_delight:abyssal_risotto"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "aquamirae:wisteria_niveis"
+    }
+  ],
+  "result": [
+    {
+      "item": "aquamirae_delight:wisteria_leaves"
+    },
+    {
+      "count": 2,
+      "item": "aquamirae_delight:ground_wisteria"
+    },
+    {
+      "item": "minecraft:snowball"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

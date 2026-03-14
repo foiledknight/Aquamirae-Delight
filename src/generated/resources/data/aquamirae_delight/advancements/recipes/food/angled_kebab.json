@@ -1,0 +1,45 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "aquamirae_delight:oxygelium_bulbs"
+            ]
+          },
+          {
+            "items": [
+              "aquamirae:anglers_fang"
+            ]
+          },
+          {
+            "items": [
+              "aquamirae:spinefish"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "aquamirae_delight:angled_kebab"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_item",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "aquamirae_delight:angled_kebab"
+    ]
+  },
+  "sends_telemetry_event": false
+}

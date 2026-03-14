@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "aquamirae:cooked_spinefish"
+            ]
+          },
+          {
+            "items": [
+              "aquamirae_delight:wisteria_leaves"
+            ]
+          },
+          {
+            "items": [
+              "aquamirae:anglers_fang"
+            ]
+          },
+          {
+            "items": [
+              "farmersdelight:tomato"
+            ]
+          },
+          {
+            "items": [
+              "farmersdelight:onion"
+            ]
+          },
+          {
+            "items": [
+              "minecraft:bread"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "aquamirae_delight:fishermans_delicacy"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_item",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "aquamirae_delight:fishermans_delicacy"
+    ]
+  },
+  "sends_telemetry_event": false
+}

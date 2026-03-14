@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "aquamirae_delight:spinefish_roll"
+    },
+    "B": {
+      "item": "aquamirae_delight:fishermans_delicacy_slice"
+    },
+    "C": {
+      "item": "aquamirae_delight:spinefish_kelp_roll_slice"
+    },
+    "D": {
+      "item": "minecraft:bowl"
+    }
+  },
+  "pattern": [
+    "AAA",
+    "BCB",
+    "CDC"
+  ],
+  "result": {
+    "item": "aquamirae_delight:aquatic_feast"
+  },
+  "show_notification": true
+}

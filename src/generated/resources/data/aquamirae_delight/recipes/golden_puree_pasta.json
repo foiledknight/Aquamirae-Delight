@@ -1,0 +1,20 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "aquamirae_delight:golden_puree"
+    },
+    {
+      "tag": "forge:pasta"
+    },
+    {
+      "item": "aquamirae_delight:ground_wisteria"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "aquamirae_delight:golden_puree_pasta"
+  }
+}

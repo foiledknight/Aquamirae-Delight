@@ -1,0 +1,20 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "aquamirae:spinefish"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "aquamirae_delight:spinefish_slice"
+    },
+    {
+      "item": "aquamirae:sharp_bones"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

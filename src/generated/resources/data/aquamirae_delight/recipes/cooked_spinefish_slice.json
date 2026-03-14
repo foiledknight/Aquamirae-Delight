@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "aquamirae_delight:spinefish_slice"
+  },
+  "result": "aquamirae_delight:cooked_spinefish_slice"
+}

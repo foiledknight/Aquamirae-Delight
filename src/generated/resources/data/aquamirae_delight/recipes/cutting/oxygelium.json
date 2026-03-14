@@ -1,0 +1,20 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "aquamirae:oxygelium"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "aquamirae_delight:oxygelium_bulbs"
+    },
+    {
+      "item": "aquamirae:elodea"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

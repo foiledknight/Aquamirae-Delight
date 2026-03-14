@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "tag": "forge:raw_fishes/spinefish"
+    },
+    {
+      "tag": "forge:pasta"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "item": "aquamirae_delight:oxygelium_bulbs"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "aquamirae_delight:spinefish_alfredo"
+  }
+}

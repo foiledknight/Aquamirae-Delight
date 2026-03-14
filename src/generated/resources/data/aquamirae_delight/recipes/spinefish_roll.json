@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "aquamirae_delight:spinefish_slice"
+    },
+    {
+      "item": "aquamirae_delight:spinefish_slice"
+    },
+    {
+      "item": "farmersdelight:cooked_rice"
+    }
+  ],
+  "result": {
+    "item": "aquamirae_delight:spinefish_roll"
+  }
+}

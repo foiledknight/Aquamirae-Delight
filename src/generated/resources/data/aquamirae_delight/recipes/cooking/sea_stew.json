@@ -1,0 +1,29 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "minecraft:baked_potato"
+    },
+    {
+      "item": "aquamirae:esca"
+    },
+    {
+      "tag": "forge:cooked_fishes/spinefish"
+    },
+    {
+      "item": "aquamirae:oxygelium"
+    },
+    {
+      "item": "aquamirae:fin"
+    },
+    {
+      "item": "minecraft:pufferfish"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "aquamirae:sea_stew"
+  }
+}

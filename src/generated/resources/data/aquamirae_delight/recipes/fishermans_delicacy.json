@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "aquamirae_delight:fishermans_delicacy"
+    }
+  ],
+  "result": [
+    {
+      "count": 6,
+      "item": "aquamirae_delight:fishermans_delicacy_slice"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

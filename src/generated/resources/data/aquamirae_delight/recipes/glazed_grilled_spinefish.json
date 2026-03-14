@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "forge:cooked_fishes/spinefish"
+    },
+    {
+      "item": "aquamirae_delight:oxygelium_bulbs"
+    },
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "aquamirae_delight:wisteria_leaves"
+    },
+    {
+      "item": "aquamirae_delight:golden_puree"
+    },
+    {
+      "tag": "forge:crops/onion"
+    }
+  ],
+  "result": {
+    "item": "aquamirae_delight:glazed_grilled_spinefish"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "aquamirae:esca"
+    },
+    {
+      "item": "aquamirae_delight:oxygelium_bulbs"
+    },
+    {
+      "item": "aquamirae:fin"
+    },
+    {
+      "item": "aquamirae_delight:wisteria_leaves"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "aquamirae_delight:escagelium_soup"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "aqd_deepsea_pie",
+  "key": {
+    "S": {
+      "item": "aquamirae_delight:deepsea_pie_slice"
+    }
+  },
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "result": {
+    "item": "aquamirae_delight:deepsea_pie"
+  },
+  "show_notification": true
+}

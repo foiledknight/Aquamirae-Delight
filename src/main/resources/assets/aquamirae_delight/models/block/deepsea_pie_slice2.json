@@ -1,0 +1,11 @@
+{
+  "parent": "aquamirae_delight:block/fin_pie_slice2",
+  "textures": {
+    "particle": "aquamirae_delight:block/deepsea_pie_top",
+    "bottom": "farmersdelight:block/pie_bottom",
+    "side": "farmersdelight:block/pie_side",
+    "top": "aquamirae_delight:block/deepsea_pie_top",
+		"inner": "aquamirae_delight:block/deepsea_pie_inner",
+		"fin": "aquamirae_delight:block/fin_topper"
+  }
+}
