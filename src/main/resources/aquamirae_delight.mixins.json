@@ -4,6 +4,7 @@
   "package": "womp.tinfoilknight.aquamirae_delight.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "MixinGoldenMoth",
     "MixinOxygeliumBlock"
   ],
   "client": [],
