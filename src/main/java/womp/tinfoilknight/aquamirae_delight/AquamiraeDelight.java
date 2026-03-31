@@ -2,6 +2,7 @@ package womp.tinfoilknight.aquamirae_delight;
 
 import com.mojang.logging.LogUtils;
 import com.obscuria.aquamirae.registry.AquamiraeItems;
+import com.obscuria.aquamirae.registry.AquamiraeEntities;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.network.chat.Component;
@@ -14,6 +15,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
@@ -22,6 +24,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
@@ -91,7 +94,7 @@ public class AquamiraeDelight {
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
     private static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, MODID);
-    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES_OVERRIDE = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, "aquamirae");
+    public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, MODID);
     public static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, MODID);
 
     public static Item.Properties drinkableFoodItem(FoodProperties food) {
@@ -100,7 +103,7 @@ public class AquamiraeDelight {
     public static final RegistryObject<SimpleParticleType> SHINE_HEART = PARTICLES.register("shine_heart", () -> new SimpleParticleType(true));
 
     public static final RegistryObject<EntityType<GoldenMothAnimal>> GOLDEN_MOTH =
-            ENTITY_TYPES_OVERRIDE.register("golden_moth", () -> EntityType.Builder.<GoldenMothAnimal>of(GoldenMothAnimal::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(128).setUpdateInterval(3).setCustomClientFactory(GoldenMothAnimal::new).fireImmune().sized(0.5F, 0.2F).build("golden_moth"));
+            ENTITY_TYPES.register("golden_moth", () -> EntityType.Builder.<GoldenMothAnimal>of(GoldenMothAnimal::new, MobCategory.AMBIENT).setShouldReceiveVelocityUpdates(true).setTrackingRange(128).setUpdateInterval(3).setCustomClientFactory(GoldenMothAnimal::new).fireImmune().sized(0.5F, 0.2F).build("golden_moth"));
 
     public static final RegistryObject<MobEffect> SPEED_DECREASE = EFFECTS.register("speed_decrease", SpeedDecreaseMobEffect::new);
 
@@ -143,12 +146,15 @@ public class AquamiraeDelight {
         BLOCKS.register(modEventBus);
         EFFECTS.register(modEventBus);
         PARTICLES.register(modEventBus);
-        ENTITY_TYPES_OVERRIDE.register(modEventBus);
+        ENTITY_TYPES.register(modEventBus);
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.addListener(this::inWater);
         MinecraftForge.EVENT_BUS.addListener(this::onEntityAttacked);
         MinecraftForge.EVENT_BUS.addListener(this::onEntityHurt);
         MinecraftForge.EVENT_BUS.addListener(this::onEntityKilled);
+        MinecraftForge.EVENT_BUS.addListener(this::registerSpawns);
+        MinecraftForge.EVENT_BUS.addListener(this::registerAttributes);
+        MinecraftForge.EVENT_BUS.addListener(this::replaceMoth);
     }
 
     @SubscribeEvent
@@ -162,12 +168,27 @@ public class AquamiraeDelight {
         ComposterBlock.COMPOSTABLES.put((ItemLike) FISHERMANS_DELICACY_ITEM.get(), 1.0F);
         ComposterBlock.COMPOSTABLES.put((ItemLike) DEEPSEA_PIE.get(), 1.0F);
     }
-    @SubscribeEvent
-    public static void registerAttributes(EntityAttributeCreationEvent event) {
+
+    public void replaceMoth(EntityJoinLevelEvent event) {
+        Entity entity = event.getEntity();
+        Level level = event.getLevel();
+        if (entity.getType() == AquamiraeEntities.GOLDEN_MOTH.get()) {
+            event.setCanceled(true);
+            if (!level.isClientSide()) {
+                Entity newMoth = GOLDEN_MOTH.get().create(level);
+                if (newMoth != null) {
+                    newMoth.moveTo(entity.getX(), entity.getY(), entity.getZ(), entity.getYRot(), entity.getXRot());
+                    level.addFreshEntity(newMoth);
+                }
+            }
+        }
+    }
+
+    public void registerAttributes(EntityAttributeCreationEvent event) {
         event.put(AquamiraeDelight.GOLDEN_MOTH.get(), GoldenMothAnimal.createAttributes().build());
     }
-    @SubscribeEvent
-    public static void registerSpawns(SpawnPlacementRegisterEvent event) {
+
+    public void registerSpawns(SpawnPlacementRegisterEvent event) {
         event.register(AquamiraeDelight.GOLDEN_MOTH.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, GoldenMothAnimal.getSpawnRules(), SpawnPlacementRegisterEvent.Operation.REPLACE);
     }
 
