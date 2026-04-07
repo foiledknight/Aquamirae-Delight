@@ -3,7 +3,7 @@
   "cookingtime": 200,
   "experience": 0.35,
   "ingredient": {
-    "item": "aquamirae:golden_moth_in_a_jar"
+    "tag": "aquamirae_delight:golden_moth_in_a_jar"
   },
   "result": "aquamirae_delight:golden_puree"
 }

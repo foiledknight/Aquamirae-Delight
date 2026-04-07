@@ -2,9 +2,11 @@ package womp.tinfoilknight.aquamirae_delight.datagen;
 
 import com.obscuria.aquamirae.registry.AquamiraeItems;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -72,7 +74,7 @@ public class AQDRecipes extends RecipeProvider {
 
     public static void smeltingRecipes(Consumer<FinishedRecipe> consumer) {
         foodSmeltingRecipes ("spinefish_slice", AquamiraeDelight.SPINEFISH_SLICE.get(), AquamiraeDelight.COOKED_SPINEFISH_SLICE.get(), 0.35F, consumer);
-        foodSmeltingRecipes("golden_puree", AquamiraeItems.GOLDEN_MOTH_IN_A_JAR.get(), AquamiraeDelight.GOLDEN_PUREE.get(), 0.35F, consumer);
+        foodSmeltingRecipes("golden_puree", InForgeTags.GOLDEN_MOTH_IN_A_JAR, AquamiraeDelight.GOLDEN_PUREE.get(), 0.35F, consumer);
     }
 
 
@@ -81,6 +83,12 @@ public class AQDRecipes extends RecipeProvider {
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(new ItemLike[]{ingredient}), result, experience, 200).unlockedBy(name, InventoryChangeTrigger.TriggerInstance.hasItems(new ItemLike[]{ingredient})).save(consumer);
         SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(new ItemLike[]{ingredient}), result, experience, 600).unlockedBy(name, InventoryChangeTrigger.TriggerInstance.hasItems(new ItemLike[]{ingredient})).save(consumer, namePrefix + "_from_campfire_cooking");
         SimpleCookingRecipeBuilder.smoking(Ingredient.of(new ItemLike[]{ingredient}), result, experience, 100).unlockedBy(name, InventoryChangeTrigger.TriggerInstance.hasItems(new ItemLike[]{ingredient})).save(consumer, namePrefix + "_from_smoking");
+    }
+    private static void foodSmeltingRecipes(String name, TagKey<Item> ingredient, ItemLike result, float experience, Consumer<FinishedRecipe> consumer) {
+        String namePrefix = (ResourceLocation.fromNamespaceAndPath(AquamiraeDelight.MODID, name)).toString();
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ingredient), result, experience, 200).unlockedBy(name, InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ingredient).build())).save(consumer);
+        SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(ingredient), result, experience, 600).unlockedBy(name, InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ingredient).build())).save(consumer, namePrefix + "_from_campfire_cooking");
+        SimpleCookingRecipeBuilder.smoking(Ingredient.of(ingredient), result, experience, 100).unlockedBy(name, InventoryChangeTrigger.TriggerInstance.hasItems(ItemPredicate.Builder.item().of(ingredient).build())).save(consumer, namePrefix + "_from_smoking");
     }
     private static void fromSlices4(RegistryObject<Block> whole, RegistryObject<Item> slice, Consumer<FinishedRecipe> consumer) {
         String whole_string = whole.getId().getPath();
