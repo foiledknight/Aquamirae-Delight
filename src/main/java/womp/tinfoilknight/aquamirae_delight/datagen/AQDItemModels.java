@@ -41,6 +41,9 @@ public class AQDItemModels extends ItemModelProvider {
         simpleItem(AquamiraeDelight.SPINEFISH_ALFREDO);
         simpleItem(AquamiraeDelight.ESCAGELIUM_SOUP);
         simpleItem(AquamiraeDelight.ANGLERS_SOUP);
+
+        spawnEgg(AquamiraeDelight.GOLDEN_MOTH_SPAWN_EGG);
+        simpleItem(AquamiraeDelight.GOLDEN_MOTH_IN_A_JAR_BLOCK_ITEM);
     }
 
     private void simpleTool(RegistryObject<Item> item) {
@@ -53,5 +56,10 @@ public class AQDItemModels extends ItemModelProvider {
         String name = item.getId().getPath();
         withExistingParent(name, mcLoc("item/generated"))
                 .texture("layer0", modLoc("item/" + name));
+    }
+
+    private void spawnEgg(RegistryObject<Item> item){
+        String name = item.getId().getPath();
+        withExistingParent(name, mcLoc("item/template_spawn_egg"));
     }
 }

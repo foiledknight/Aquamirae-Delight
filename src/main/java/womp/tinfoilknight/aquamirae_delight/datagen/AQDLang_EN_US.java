@@ -40,7 +40,10 @@ public class AQDLang_EN_US extends LanguageProvider {
 
         addEffect(AquamiraeDelight.SPEED_DECREASE, "Speed Decrease");
 
-        addEntityType(AquamiraeDelight.GOLDEN_MOTH, "Golden Moth");
+        addEntityType(AquamiraeDelight.GOLDEN_MOTH, "§eGolden Moth");
+
+        addItem(AquamiraeDelight.GOLDEN_MOTH_SPAWN_EGG, "Golden Moth Spawn Egg");
+        addBlock(AquamiraeDelight.GOLDEN_MOTH_IN_A_JAR, "Golden Moth in a Jar");
 
         add("class.aquamirae.sea_wolf_tool", "Sea Wolf Tool");
         add("ability.aquamirae_delight.separator", "Enervation > Reduces the target's speed by 10% for {#1}. Stacks up to 5 times");
