@@ -1,4 +1,4 @@
-// 1.20.1	2025-12-02T15:49:59.110548	Item Models: aquamirae_delight
+// 1.20.1	2026-04-06T21:26:13.1816249	Item Models: aquamirae_delight
 872f1ef6d35c603de1914a856b796f7de9e44097 assets/aquamirae_delight/models/item/abyssal_risotto.json
 bcf4f87e3bb28bf0412019c8b12806cf041c5f98 assets/aquamirae_delight/models/item/angled_kebab.json
 de53ed8b6bc25e0e5c448d75688084a384581fd0 assets/aquamirae_delight/models/item/anglers_soup.json
@@ -11,6 +11,8 @@ b8b233ff1e0f844ccaccdd33b9547d9302222a98 assets/aquamirae_delight/models/item/es
 70e1c6c85d6c20defb79683a3a473f978eb05a02 assets/aquamirae_delight/models/item/fishermans_delicacy.json
 40e4ade01e8c557641bb03aa1bb5967001d06aba assets/aquamirae_delight/models/item/fishermans_delicacy_slice.json
 2f0a54f489f738cfb9172618680f01b298cec2c3 assets/aquamirae_delight/models/item/glazed_grilled_spinefish.json
+40a4083ade9a5f9f293250db9df0f5af32908a80 assets/aquamirae_delight/models/item/golden_moth_in_a_jar.json
+63ec6c618a3a23eab4cab9c52d7d3250de9b516e assets/aquamirae_delight/models/item/golden_moth_spawn_egg.json
 4427bed9e5d59b713607166616236c4847e057ef assets/aquamirae_delight/models/item/golden_puree.json
 0b8f6f35d7552c410761fef250e9e1f7208bb631 assets/aquamirae_delight/models/item/golden_puree_pasta.json
 a10d090caf76f14d4958fc8a022bc896728d6424 assets/aquamirae_delight/models/item/ground_wisteria.json

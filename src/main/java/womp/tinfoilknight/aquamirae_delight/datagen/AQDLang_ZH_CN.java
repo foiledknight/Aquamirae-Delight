@@ -40,7 +40,10 @@ public class AQDLang_ZH_CN extends LanguageProvider {
 
         addEffect(AquamiraeDelight.SPEED_DECREASE, "减速");
 
-        addEntityType(AquamiraeDelight.GOLDEN_MOTH, "金蛾");
+        addEntityType(AquamiraeDelight.GOLDEN_MOTH, "§e金蛾");
+
+        addItem(AquamiraeDelight.GOLDEN_MOTH_SPAWN_EGG, "金蛾刷怪蛋");
+        addBlock(AquamiraeDelight.GOLDEN_MOTH_IN_A_JAR, "金蛾罐子");
 
         add("class.aquamirae.sea_wolf_tool", "海狼工具");
         add("ability.aquamirae_delight.separator", "虚弱 > 在 {#1} 内降低目标 10% 的移动速度。最高叠加 5 层");

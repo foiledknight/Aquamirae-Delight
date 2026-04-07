@@ -73,3 +73,9 @@ mandatory = true
 versionRange = "[0,)"
 ordering = "AFTER"
 side = "BOTH"
+[[dependencies."${mod_id}"]]
+modId = "obscure_api"
+mandatory = true
+versionRange = "[0,)"
+ordering = "AFTER"
+side = "BOTH"

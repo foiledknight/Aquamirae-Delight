@@ -5,6 +5,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -38,7 +39,6 @@ public class AQDBlockStates extends BlockStateProvider {
         this.feastBlock((FeastBlock) AquamiraeDelight.AQUATIC_FEAST.get());
         this.breadBlock((BreadFoodBlock) AquamiraeDelight.FISHERMANS_DELICACY.get());
     }
-
     public void feastBlock(FeastBlock block) {
         this.getVariantBuilder(block).forAllStates((state) -> {
             IntegerProperty servingsProperty = block.getServingsProperty();

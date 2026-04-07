@@ -27,10 +27,10 @@ public class AQDRecipes extends RecipeProvider {
     }
 
     public void buildRecipes(Consumer<FinishedRecipe> consumer) {
-        cuttingRecipes(consumer);
-        cookingRecipes(consumer);
         craftingRecipes(consumer);
         smeltingRecipes(consumer);
+        cuttingRecipes(consumer);
+        cookingRecipes(consumer);
     }
 
     public static void cuttingRecipes(Consumer<FinishedRecipe> consumer) {
