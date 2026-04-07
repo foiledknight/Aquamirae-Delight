@@ -15,22 +15,19 @@ import womp.tinfoilknight.aquamirae_delight.AquamiraeDelight;
 
 import java.util.Set;
 import java.util.function.BiConsumer;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class AQDEntityLoot extends LootTableS {
-    protected AQDEntityLoot() {
-        super(FeatureFlags.REGISTRY.allFlags());
-    }
+public class AQDEntityLoot extends EntityLoot {
 
     @Override
-    public void generate() {
+    protected void addTables() {
         this.add(AquamiraeDelight.GOLDEN_MOTH.get(),  LootTable.lootTable().withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1, 2)).add(LootItem.lootTableItem(Items.GOLD_INGOT).setWeight(1).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 1)))).add(LootItem.lootTableItem(Items.GOLD_NUGGET).setWeight(10).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 3))))));
     }
 
     @Override
-    protected @NotNull Stream<EntityType<?>> getKnownEntityTypes() {
-        return AquamiraeDelight.ENTITY_TYPES.getEntries().stream()
-                .map(RegistryObject::get);
+    protected Iterable<EntityType<?>> getKnownEntities() {
+        return AquamiraeDelight.ENTITY_TYPES.getEntries().stream().map(RegistryObject::get).map(e -> (EntityType<?>) e).collect(Collectors.toSet());
     }
 
 }

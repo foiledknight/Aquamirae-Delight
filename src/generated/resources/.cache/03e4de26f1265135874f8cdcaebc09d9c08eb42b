@@ -1,4 +1,5 @@
-// 1.19.2	2026-03-14T15:19:11.9030683	Tags for minecraft:item
+// 1.19.2	2026-04-07T06:06:57.8490171	Tags for minecraft:item
+6616a1b641e580a04cc7778ed02d4aa4f5937d5a data/aquamirae_delight/tags/items/jars.json
 31f4b0d25b3722b081b4e6d31a19f01399751b56 data/farmersdelight/tags/items/tools/knives.json
 3f09aa23c0194393c781f09535d5c054124f3fea data/forge/tags/items/cooked_fishes.json
 ec8308cf4d3afb2db12c38556512af970ee42ef7 data/forge/tags/items/cooked_fishes/spinefish.json

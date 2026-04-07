@@ -14,6 +14,8 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
+import womp.tinfoilknight.aquamirae_delight.entity.GoldenMothAnimal;
+import womp.tinfoilknight.aquamirae_delight.models.GoldenMothAnimalModel;
 import womp.tinfoilknight.aquamirae_delight.renderers.GoldenMothAnimalRenderer;
 
 @Mod.EventBusSubscriber(modid = AquamiraeDelight.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -34,7 +36,7 @@ public class AquamiraeDelightClient {
     public static final ModelLayerLocation GOLDEN_MOTH_LAYERS = registerModelLayer("golden_moth");
     @SubscribeEvent
     public static void registerLayerDefinitions(EntityRenderersEvent.@NotNull RegisterLayerDefinitions event) {
-        event.registerLayerDefinition(GOLDEN_MOTH_LAYERS, ModelGoldenMoth::createBodyLayer);
+        event.registerLayerDefinition(GOLDEN_MOTH_LAYERS, GoldenMothAnimalModel::createBodyLayer);
     }
 
     @Contract("_ -> new")

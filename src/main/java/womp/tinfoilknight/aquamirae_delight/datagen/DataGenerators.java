@@ -22,7 +22,6 @@ public class DataGenerators {
         DataGenerator gen = event.getGenerator();
         ExistingFileHelper efh = event.getExistingFileHelper();
         BlockTagsProvider blockTags = new AQDBlockTags(gen, efh);
-        LootTableProvider.SubProviderEntry entityLootSubProvider = new LootTableProvider.SubProviderEntry(AQDEntityLoot::new, LootContextParamSets.EMPTY);
 
         gen.addProvider(
                 event.includeClient(),
@@ -56,7 +55,10 @@ public class DataGenerators {
                 event.includeServer(),
                 blockTags
         );
-        gen.addProvider(event.includeServer(), new AQDLootTables(output, Collections.emptySet(), List.of(entityLootSubProvider)));
+        gen.addProvider(
+                event.includeServer(),
+                new AQDLootTables(gen)
+        );
     }
 }
 
