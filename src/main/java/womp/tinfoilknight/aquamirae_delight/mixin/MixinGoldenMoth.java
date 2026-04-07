@@ -42,28 +42,28 @@ public class MixinGoldenMoth extends PathfinderMob {
         ItemStack stack = player.getItemInHand(hand);
         if (stack.getItem() == Items.GLASS_BOTTLE) {
             stack.shrink(1);
-            if (!this.level().isClientSide()) {
-                this.level().playSound((Player)null, this.blockPosition(), (SoundEvent) AquamiraeSounds.ENTITY_GOLDEN_MOTH_CATCH.get(), SoundSource.AMBIENT, 1.0F, 1.0F);
-                ItemEntity item = new ItemEntity(this.level(), this.getX(), this.getY(), this.getZ(), new ItemStack((ItemLike) AquamiraeBlocks.GOLDEN_MOTH_IN_A_JAR.get()));
+            if (!this.level.isClientSide()) {
+                this.level.playSound((Player)null, this.blockPosition(), (SoundEvent) AquamiraeSounds.ENTITY_GOLDEN_MOTH_CATCH.get(), SoundSource.AMBIENT, 1.0F, 1.0F);
+                ItemEntity item = new ItemEntity(this.level, this.getX(), this.getY(), this.getZ(), new ItemStack((ItemLike) AquamiraeBlocks.GOLDEN_MOTH_IN_A_JAR.get()));
                 item.setPickUpDelay(10);
-                this.level().addFreshEntity(item);
+                this.level.addFreshEntity(item);
                 this.discard();
             }
         }
         if (stack.getItem() == AquamiraeDelight.WISTERIA_LEAVES.get()) {
             stack.shrink(1);
-            if (!this.level().isClientSide()) {
+            if (!this.level.isClientSide()) {
                 double x = this.getX();
                 double y = this.getY();
                 double z = this.getZ();
                 Vec2 rot = this.getRotationVector();
                 this.discard();
-                Entity newMoth = AquamiraeDelight.GOLDEN_MOTH.get().create(level());
+                Entity newMoth = AquamiraeDelight.GOLDEN_MOTH.get().create(level);
                 newMoth.moveTo(x, y, z, rot.y, rot.x);
-                level().addFreshEntity(newMoth);
+                level.addFreshEntity(newMoth);
             }
-            if (this.level() instanceof ServerLevel) {
-                ServerLevel server = (ServerLevel)level();
+            if (this.level instanceof ServerLevel) {
+                ServerLevel server = (ServerLevel)level;
                 RandomSource random = this.getRandom();
                 double min = 0.1;
                 double max = 0.5;
@@ -76,6 +76,6 @@ public class MixinGoldenMoth extends PathfinderMob {
             }
         }
 
-        return InteractionResult.sidedSuccess(this.level().isClientSide());
+        return InteractionResult.sidedSuccess(this.level.isClientSide());
     }
 }

@@ -1,22 +1,13 @@
 package womp.tinfoilknight.aquamirae_delight.datagen;
 
-import net.minecraft.data.loot.BlockLootSubProvider;
-import net.minecraft.data.loot.EntityLootSubProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.data.loot.EntityLoot;
+import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.flag.FeatureFlagSet;
-import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.*;
-import net.minecraft.world.level.storage.loot.functions.LootItemFunction;
-import net.minecraft.world.level.storage.loot.functions.LootItemFunctions;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemConditions;
-import net.minecraft.world.level.storage.loot.providers.number.NumberProvider;
-import net.minecraft.world.level.storage.loot.providers.number.NumberProviders;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
@@ -26,7 +17,7 @@ import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.stream.Stream;
 
-public class AQDEntityLoot extends EntityLootSubProvider {
+public class AQDEntityLoot extends LootTableS {
     protected AQDEntityLoot() {
         super(FeatureFlags.REGISTRY.allFlags());
     }

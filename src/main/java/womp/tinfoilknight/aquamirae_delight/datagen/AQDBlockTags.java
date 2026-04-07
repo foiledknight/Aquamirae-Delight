@@ -1,17 +1,10 @@
 package womp.tinfoilknight.aquamirae_delight.datagen;
 
 import com.obscuria.aquamirae.registry.AquamiraeBlocks;
-import com.obscuria.aquamirae.registry.AquamiraeItems;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
-import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.level.block.Block;
-import net.minecraftforge.common.Tags;
-import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.tag.ModTags;
 import womp.tinfoilknight.aquamirae_delight.AquamiraeDelight;
