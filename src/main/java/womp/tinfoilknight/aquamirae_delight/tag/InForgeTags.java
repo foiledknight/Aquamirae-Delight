@@ -13,6 +13,7 @@ public class InForgeTags {
     public static final TagKey<Item> COOKED_FISHES_SPINEFISH = forgeItemTag("cooked_fishes/spinefish");
     public static final TagKey<Item> JAR_ITEMS = AQDItemTag("jars");
     public static final TagKey<Block> JAR_BLOCKS = AQDBlockTag("jars");
+    public static final TagKey<Item> GOLDEN_MOTH_IN_A_JAR = AQDItemTag("golden_moth_in_a_jar");
 
     private static TagKey<Item> forgeItemTag(String path) {
         return ItemTags.create(ResourceLocation.fromNamespaceAndPath("forge", path));
