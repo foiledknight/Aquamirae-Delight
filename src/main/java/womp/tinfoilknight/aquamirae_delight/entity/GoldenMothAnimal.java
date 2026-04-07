@@ -1,4 +1,4 @@
-package womp.tinfoilknight.aquamirae_delight.entities;
+package womp.tinfoilknight.aquamirae_delight.entity;
 
 import com.obscuria.aquamirae.common.entities.ShipGraveyardEntity;
 import com.obscuria.aquamirae.registry.AquamiraeBlocks;
@@ -39,8 +39,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import womp.tinfoilknight.aquamirae_delight.AquamiraeDelight;
 
-import java.util.EnumSet;
-
 @ShipGraveyardEntity
 public class GoldenMothAnimal extends Animal implements FlyingAnimal {
     public static Item FOOD_ITEM = AquamiraeDelight.WISTERIA_LEAVES.get();
@@ -49,7 +47,7 @@ public class GoldenMothAnimal extends Animal implements FlyingAnimal {
         this(AquamiraeDelight.GOLDEN_MOTH.get(), level);
     }
 
-    public GoldenMothAnimal(EntityType<GoldenMothAnimal> type, Level world) {
+    public GoldenMothAnimal(EntityType<? extends GoldenMothAnimal> type, Level world) {
         super(type, world);
         this.xpReward = 10;
         this.moveControl = new FlyingMoveControl(this, 10, true);

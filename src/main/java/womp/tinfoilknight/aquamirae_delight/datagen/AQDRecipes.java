@@ -29,10 +29,10 @@ public class AQDRecipes extends RecipeProvider {
 
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
-        cuttingRecipes(consumer);
-        cookingRecipes(consumer);
         craftingRecipes(consumer);
         smeltingRecipes(consumer);
+        cuttingRecipes(consumer);
+        cookingRecipes(consumer);
     }
 
     public static void cuttingRecipes(Consumer<FinishedRecipe> consumer) {

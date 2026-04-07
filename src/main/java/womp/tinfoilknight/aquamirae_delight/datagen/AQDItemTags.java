@@ -34,5 +34,7 @@ public class AQDItemTags extends ItemTagsProvider {
         this.tag(InForgeTags.RAW_FISHES_SPINEFISH).add(AquamiraeItems.SPINEFISH.get(), AquamiraeDelight.COOKED_SPINEFISH_SLICE.get());
         this.tag(ForgeTags.COOKED_FISHES).addTag(InForgeTags.COOKED_FISHES_SPINEFISH);
         this.tag(InForgeTags.COOKED_FISHES_SPINEFISH).add(AquamiraeItems.COOKED_SPINEFISH.get() ,AquamiraeDelight.COOKED_SPINEFISH_SLICE.get());
+
+        this.tag(InForgeTags.JAR_ITEMS).add(AquamiraeItems.GOLDEN_MOTH_IN_A_JAR.get(), AquamiraeDelight.GOLDEN_MOTH_IN_A_JAR_BLOCK_ITEM.get());
     }
 }

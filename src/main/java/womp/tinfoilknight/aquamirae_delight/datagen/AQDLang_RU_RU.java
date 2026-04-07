@@ -41,7 +41,10 @@ public class AQDLang_RU_RU extends LanguageProvider {
 
         addEffect(AquamiraeDelight.SPEED_DECREASE, "Снижение скорости");
 
-        addEntityType(AquamiraeDelight.GOLDEN_MOTH, "Золотистая моль");
+        addEntityType(AquamiraeDelight.GOLDEN_MOTH, "§eЗолотой мотылёк");
+
+        addItem(AquamiraeDelight.GOLDEN_MOTH_SPAWN_EGG, "Призыв Золотого мотылька");
+        addBlock(AquamiraeDelight.GOLDEN_MOTH_IN_A_JAR, "Золотой мотылёк в банке");
 
         add("class.aquamirae.sea_wolf_tool", "Инструмент морского волка");
         add("ability.aquamirae_delight.separator", "Ослабление > Снижает скорость цели на 10% на {#1}. Суммируется до 5 раз");
