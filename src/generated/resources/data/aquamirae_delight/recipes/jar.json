@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:glass_bottle"
+    }
+  },
+  "pattern": [
+    "B B",
+    " B "
+  ],
+  "result": {
+    "item": "aquamirae_delight:jar"
+  },
+  "show_notification": true
+}

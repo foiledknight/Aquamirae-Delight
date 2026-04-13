@@ -40,7 +40,7 @@ public class MixinGoldenMoth extends PathfinderMob {
     public @NotNull InteractionResult mobInteract(@NotNull Player player, @NotNull InteractionHand hand) {
         super.mobInteract(player, hand);
         ItemStack stack = player.getItemInHand(hand);
-        if (stack.getItem() == Items.GLASS_BOTTLE) {
+        if (stack.getItem() == AquamiraeDelight.JAR_ITEM.get()) {
             stack.shrink(1);
             if (!this.level().isClientSide()) {
                 this.level().playSound((Player)null, this.blockPosition(), (SoundEvent) AquamiraeSounds.ENTITY_GOLDEN_MOTH_CATCH.get(), SoundSource.AMBIENT, 1.0F, 1.0F);

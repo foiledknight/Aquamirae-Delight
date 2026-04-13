@@ -1,0 +1,21 @@
+1. Mod description form "adds stuff" to actual description
+
+2. Added better combat compatability
+
+3. Fixed incorrect lang entires in some lanugages
+
+4. Populated item tag "aquamirae_delight:golden_moth_in_a_jar"
+
+5. Added Jar item loot table
+
+6. Rearranged Creative Tab slightly
+
+7. Changed creative tab lang entry
+
+8. Added recipe for empty jar
+
+9. Capturing Golden Moths now requires a Jar
+
+10. Right clicking Aquamirae Delight Golden Moth with a bottle/jar no longer returns Aquamirae Golden Moth In A Jar
+
+11. Added item lore similar to Aquamirae Golden Moth In A Jar

@@ -1,11 +1,11 @@
 package womp.tinfoilknight.aquamirae_delight.datagen;
 
+import com.obscuria.aquamirae.Aquamirae;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -15,6 +15,7 @@ import vectorwing.farmersdelight.common.block.FeastBlock;
 import vectorwing.farmersdelight.common.block.PieBlock;
 import womp.tinfoilknight.aquamirae_delight.AquamiraeDelight;
 import womp.tinfoilknight.aquamirae_delight.blocks.BreadFoodBlock;
+import womp.tinfoilknight.aquamirae_delight.blocks.FunctionalJarBlock;
 
 public class AQDBlockStates extends BlockStateProvider {
     public AQDBlockStates(PackOutput output, ExistingFileHelper existingFileHelper) {
@@ -28,9 +29,15 @@ public class AQDBlockStates extends BlockStateProvider {
     public ResourceLocation resourceBlock(String path) {
         return ResourceLocation.fromNamespaceAndPath(AquamiraeDelight.MODID, "block/" + path);
     }
+    public ResourceLocation resourceAquamiraeBlock(String path) {
+        return ResourceLocation.fromNamespaceAndPath(Aquamirae.MODID, "block/" + path);
+    }
 
     public ModelFile existingModel(String path) {
         return new ModelFile.ExistingModelFile(this.resourceBlock(path), this.models().existingFileHelper);
+    }
+    public ModelFile existingAquamiraeModel(String path) {
+        return new ModelFile.ExistingModelFile(this.resourceAquamiraeBlock(path), this.models().existingFileHelper);
     }
 
     @Override
@@ -38,6 +45,26 @@ public class AQDBlockStates extends BlockStateProvider {
         this.pieBlock((PieBlock) AquamiraeDelight.DEEPSEA_PIE.get());
         this.feastBlock((FeastBlock) AquamiraeDelight.AQUATIC_FEAST.get());
         this.breadBlock((BreadFoodBlock) AquamiraeDelight.FISHERMANS_DELICACY.get());
+        jarBlock(AquamiraeDelight.JAR.get());
+        jarBlock(AquamiraeDelight.GOLDEN_MOTH_IN_A_JAR.get());
+        jarBlock(AquamiraeDelight.FUNCTIONAL_JAR.get());
+    }
+    public void jarBlock(Block block){
+        ConfiguredModel.Builder<?> builder = ConfiguredModel.builder();
+        String fileName = this.blockName(block);
+        getVariantBuilder(block).partialState().setModels(builder.modelFile(this.existingModel(fileName)).build());
+    }
+    public void filledJarBlock(FunctionalJarBlock block){
+        getVariantBuilder(block).forAllStates(state -> {
+            IntegerProperty fillState = block.getContentsQuantity();
+            int quantity = state.getValue(fillState);
+            String suffix = "_" + quantity;
+
+            ConfiguredModel.Builder<?> builder = ConfiguredModel.builder();
+            String blockName = this.blockName(block);
+            String fileName = blockName + suffix;
+            return builder.modelFile(this.existingModel(fileName)).build();
+        });
     }
     public void feastBlock(FeastBlock block) {
         this.getVariantBuilder(block).forAllStates((state) -> {

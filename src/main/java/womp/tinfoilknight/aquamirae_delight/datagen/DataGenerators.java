@@ -28,8 +28,10 @@ public class DataGenerators {
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
         AQDBlockTags blockTags = new AQDBlockTags(output, lookupProvider,existingFileHelper);
         LootTableProvider.SubProviderEntry entityLootSubProvider = new LootTableProvider.SubProviderEntry(AQDEntityLoot::new, LootContextParamSets.EMPTY);
+        LootTableProvider.SubProviderEntry blockLootSubProvider = new LootTableProvider.SubProviderEntry(AQDBlockLoot::new, LootContextParamSets.EMPTY);
 
         gen.addProvider(event.includeClient(), new AQDItemModels(output, existingFileHelper));
+        gen.addProvider(event.includeClient(), new AQDBlockModels(output, existingFileHelper));
         gen.addProvider(event.includeClient(), new AQDBlockStates(output, existingFileHelper));
         gen.addProvider(event.includeClient(), new AQDLang_EN_US(output, "en_us"));
         gen.addProvider(event.includeClient(), new AQDLang_RU_RU(output, "ru_ru"));
@@ -37,7 +39,10 @@ public class DataGenerators {
         gen.addProvider(event.includeServer(), new AQDRecipes(output));
         gen.addProvider(event.includeServer(), blockTags);
         gen.addProvider(event.includeServer(), new AQDItemTags(output, lookupProvider, blockTags.contentsGetter(),existingFileHelper));
-        gen.addProvider(event.includeServer(), new AQDLootTables(output, Collections.emptySet(), List.of(entityLootSubProvider)));
+        gen.addProvider(event.includeServer(), new AQDLootTables(output, Collections.emptySet(), List.of(
+                entityLootSubProvider,
+                blockLootSubProvider
+        )));
     }
 }
 

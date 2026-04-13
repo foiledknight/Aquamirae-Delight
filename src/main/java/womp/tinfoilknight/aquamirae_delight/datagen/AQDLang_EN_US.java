@@ -10,7 +10,7 @@ public class AQDLang_EN_US extends LanguageProvider {
     }
 
     protected void addTranslations() {
-        add("creative_tab.aquamirae_delight", "Aquamirae Delight");
+        add(AquamiraeDelight.AQUAMIRAE_DELIGHT_CREATIVE_TAB_KEY, "Aquamirae Delight");
         addItem(AquamiraeDelight.SEPARATOR, "Separator");
         addItem(AquamiraeDelight.FIN_FILLETER, "Fin Filleter");
         addItem(AquamiraeDelight.REMNANTS_KNIFE, "Remnants Knife");
@@ -44,11 +44,14 @@ public class AQDLang_EN_US extends LanguageProvider {
 
         addItem(AquamiraeDelight.GOLDEN_MOTH_SPAWN_EGG, "Golden Moth Spawn Egg");
         addBlock(AquamiraeDelight.GOLDEN_MOTH_IN_A_JAR, "Golden Moth in a Jar");
+        addBlock(AquamiraeDelight.JAR, "Jar");
+        addBlock(AquamiraeDelight.FUNCTIONAL_JAR, "Jar");
 
         add("class.aquamirae.sea_wolf_tool", "Sea Wolf Tool");
         add("ability.aquamirae_delight.separator", "Enervation > Reduces the target's speed by 10% for {#1}. Stacks up to 5 times");
         add("ability.aquamirae_delight.fin_filleter", "Ravenous > For each empty hunger shank, you deal {#1} more damage (max {#2}). Killing a mob restores half a hunger shank.");
         add("ability.aquamirae_delight.remnants_knife", "Swift Current > Gain Dolphin's Grace and deal {#1} more damage while in water");
 
+        add("lore.aquamirae_delight.golden_moth_in_a_jar", "Some treasures can have their own souls, not only devour others...");
     }
 }

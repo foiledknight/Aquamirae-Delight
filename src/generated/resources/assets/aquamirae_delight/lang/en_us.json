@@ -5,9 +5,10 @@
   "block.aquamirae_delight.aquatic_feast": "Aquatic Feast",
   "block.aquamirae_delight.deepsea_pie": "Deepsea Pie",
   "block.aquamirae_delight.fishermans_delicacy": "Fisherman's Delicacy",
+  "block.aquamirae_delight.functional_jar": "Jar",
   "block.aquamirae_delight.golden_moth_in_a_jar": "Golden Moth in a Jar",
+  "block.aquamirae_delight.jar": "Jar",
   "class.aquamirae.sea_wolf_tool": "Sea Wolf Tool",
-  "creative_tab.aquamirae_delight": "Aquamirae Delight",
   "effect.aquamirae_delight.health_decrease": "Speed Decrease",
   "entity.aquamirae_delight.golden_moth": "§eGolden Moth",
   "item.aquamirae_delight.abyssal_risotto": "Abyssal Risotto",
@@ -31,5 +32,7 @@
   "item.aquamirae_delight.spinefish_kelp_roll_slice": "Spinefish Kelp Roll Slice",
   "item.aquamirae_delight.spinefish_roll": "Spinefish Roll",
   "item.aquamirae_delight.spinefish_slice": "Spinefish Slice",
-  "item.aquamirae_delight.wisteria_leaves": "Wisteria Leaves"
+  "item.aquamirae_delight.wisteria_leaves": "Wisteria Leaves",
+  "itemGroup.aquamirae_delight": "Aquamirae Delight",
+  "lore.aquamirae_delight.golden_moth_in_a_jar": "Some treasures can have their own souls, not only devour others..."
 }

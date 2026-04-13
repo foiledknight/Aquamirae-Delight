@@ -10,7 +10,7 @@ public class AQDLang_RU_RU extends LanguageProvider {
     }
 
     protected void addTranslations() {
-        add("creative_tab.aquamirae_delight", "Aquamirae Delight");
+        add(AquamiraeDelight.AQUAMIRAE_DELIGHT_CREATIVE_TAB_KEY, "Aquamirae Delight");
         addItem(AquamiraeDelight.SEPARATOR, "Отсекатель");
         addItem(AquamiraeDelight.FIN_FILLETER, "Плавниковый Филерез");
         addItem(AquamiraeDelight.REMNANTS_KNIFE, "Мёртвый нож");
@@ -44,11 +44,14 @@ public class AQDLang_RU_RU extends LanguageProvider {
 
         addItem(AquamiraeDelight.GOLDEN_MOTH_SPAWN_EGG, "Призыв Золотого мотылька");
         addBlock(AquamiraeDelight.GOLDEN_MOTH_IN_A_JAR, "Золотой мотылёк в банке");
+        addBlock(AquamiraeDelight.JAR, "Банка");
+        addBlock(AquamiraeDelight.FUNCTIONAL_JAR, "Банка");
 
         add("class.aquamirae.sea_wolf_tool", "Инструмент морского волка");
         add("ability.aquamirae_delight.separator", "Ослабление > Снижает скорость цели на 10% на {#1}. Суммируется до 5 раз");
         add("ability.aquamirae_delight.fin_filleter", "Ненасытность > За каждую пустую единицу сытости вы наносите на {#1} ед. больше урона (макс. {#2}). Убийство моба восстанавливает пол-единицы сытости.");
         add("ability.aquamirae_delight.remnants_knife", "Быстрое течение > Находясь в воде, вы получаете эффект «Грация дельфина» и наносите на {#1} ед. больше урона");
 
+        add("lore.aquamirae_delight.golden_moth_in_a_jar", "Некоторые сокровища могут иметь собственную душу, а не только пожирать чужие...");
     }
 }

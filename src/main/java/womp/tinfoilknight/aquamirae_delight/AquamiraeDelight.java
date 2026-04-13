@@ -2,11 +2,13 @@ package womp.tinfoilknight.aquamirae_delight;
 
 import com.mojang.logging.LogUtils;
 import com.obscuria.aquamirae.Aquamirae;
+import com.obscuria.aquamirae.common.blocks.JarBlock;
+import com.obscuria.obscureapi.util.ItemUtils;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -15,10 +17,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.common.MinecraftForge;
@@ -26,12 +31,13 @@ import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegisterEvent;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
@@ -41,14 +47,13 @@ import vectorwing.farmersdelight.common.item.ConsumableItem;
 import vectorwing.farmersdelight.common.item.DrinkableItem;
 import vectorwing.farmersdelight.common.item.KelpRollItem;
 import vectorwing.farmersdelight.common.registry.ModEffects;
-import womp.tinfoilknight.aquamirae_delight.blocks.AquaticFeastBlock;
-import womp.tinfoilknight.aquamirae_delight.blocks.BreadFoodBlock;
-import womp.tinfoilknight.aquamirae_delight.blocks.ModifiedJarBlock;
+import womp.tinfoilknight.aquamirae_delight.blocks.*;
 import womp.tinfoilknight.aquamirae_delight.effects.SpeedDecreaseMobEffect;
 import womp.tinfoilknight.aquamirae_delight.entity.GoldenMothAnimal;
 import womp.tinfoilknight.aquamirae_delight.items.FinFilleter;
 import womp.tinfoilknight.aquamirae_delight.items.RemnantsKnife;
 import womp.tinfoilknight.aquamirae_delight.items.Separator;
+import womp.tinfoilknight.aquamirae_delight.tag.ExistingTag;
 
 import java.util.function.Supplier;
 
@@ -86,12 +91,13 @@ public class AquamiraeDelight {
 
     public static final VoxelShape CAKE_SHAPE = Block.box((double)2.0F, (double)0.0F, (double)2.0F, (double)14.0F, (double)4.0F, (double)14.0F);
 
-    private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
-    private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
-    private static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
-    private static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, MODID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
+    public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, MODID);
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, MODID);
     public static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, MODID);
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, MODID);
 
     public static Item.Properties drinkableFoodItem(FoodProperties food) {
         return (new Item.Properties()).food(food).craftRemainder(Items.GLASS_BOTTLE).stacksTo(16);
@@ -138,12 +144,20 @@ public class AquamiraeDelight {
     public static final RegistryObject<Item> GOLDEN_MOTH_SPAWN_EGG = ITEMS.register("golden_moth_spawn_egg", () -> new ForgeSpawnEggItem(GOLDEN_MOTH, 0xd44e00, 0xffbe33, new Item.Properties().rarity(Rarity.UNCOMMON)));
 
 
-    public static final RegistryObject<Block> GOLDEN_MOTH_IN_A_JAR = BLOCKS.register("golden_moth_in_a_jar", () -> new ModifiedJarBlock(GOLDEN_MOTH));
-    public static final RegistryObject<Item> GOLDEN_MOTH_IN_A_JAR_BLOCK_ITEM = ITEMS.register("golden_moth_in_a_jar", () -> new BlockItem((Block) GOLDEN_MOTH_IN_A_JAR.get(), basicItem()));
+    public static final RegistryObject<Block> GOLDEN_MOTH_IN_A_JAR = BLOCKS.register("golden_moth_in_a_jar", () -> new DecorationJarBlock(GOLDEN_MOTH, 8));
+    public static final RegistryObject<Item> GOLDEN_MOTH_IN_A_JAR_ITEM = ITEMS.register("golden_moth_in_a_jar", () -> new BlockItem((Block) GOLDEN_MOTH_IN_A_JAR.get(), basicItem()));
 
+    public static final RegistryObject<Block> JAR = BLOCKS.register("jar", () -> new DecorationJarBlock(0));
+    public static final RegistryObject<Item> JAR_ITEM = ITEMS.register("jar", () -> new BlockItem((Block) JAR.get(), basicItem()));
 
-    public static final RegistryObject<CreativeModeTab> AQUAMIRAE_DELIGHT_TAB = CREATIVE_TABS.register("example", () -> CreativeModeTab.builder()
-            .title(Component.translatable("creative_tab." + MODID))
+    public static final RegistryObject<Block> FUNCTIONAL_JAR = BLOCKS.register("functional_jar", FunctionalJarBlock::new);
+    public static final RegistryObject<Item> FUNCTIONAL_JAR_ITEM = ITEMS.register("functional_jar", () -> new BlockItem((Block) FUNCTIONAL_JAR.get(), basicItem()));
+
+    public static final RegistryObject<BlockEntityType<FunctionalJarBlockEntity>> JAR_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("jar_block_entity", () -> BlockEntityType.Builder.of(FunctionalJarBlockEntity::new, FUNCTIONAL_JAR.get()).build(null));
+
+    public static final String AQUAMIRAE_DELIGHT_CREATIVE_TAB_KEY = "itemGroup." + MODID;
+    public static final RegistryObject<CreativeModeTab> AQUAMIRAE_DELIGHT_CREATIVE_TAB = CREATIVE_TABS.register("example", () -> CreativeModeTab.builder()
+            .title(Component.translatable(AQUAMIRAE_DELIGHT_CREATIVE_TAB_KEY))
             .icon(() -> new ItemStack(GLAZED_GRILLED_SPINEFISH.get()))
             .displayItems((params, output) -> {
                 output.accept(SEPARATOR.get());
@@ -153,7 +167,7 @@ public class AquamiraeDelight {
                 output.accept(COOKED_SPINEFISH_SLICE.get());
                 output.accept(GROUND_WISTERIA.get());
                 output.accept(WISTERIA_LEAVES.get());
-                output.accept(GOLDEN_PUREE.get());
+                output.accept(ANGLED_KEBAB.get());
                 output.accept(OXYGELIUM_BULB.get());
 
                 output.accept(SPINEFISH_ROLL.get());
@@ -164,7 +178,7 @@ public class AquamiraeDelight {
                 output.accept(DEEPSEA_PIE_SLICE.get());
                 output.accept(FISHERMANS_DELICACY_ITEM.get());
                 output.accept(FISHERMANS_DELICACY_SLICE.get());
-                output.accept(ANGLED_KEBAB.get());
+
 
                 output.accept(GLAZED_GRILLED_SPINEFISH.get());
                 output.accept(GOLDEN_PUREE_PASTA.get());
@@ -173,7 +187,9 @@ public class AquamiraeDelight {
                 output.accept(ESCAGELIUM_SOUP.get());
                 output.accept(ANGLERS_SOUP.get());
 
-                output.accept(GOLDEN_MOTH_IN_A_JAR_BLOCK_ITEM.get());
+                output.accept(JAR.get());
+                output.accept(GOLDEN_PUREE.get());
+                output.accept(GOLDEN_MOTH_IN_A_JAR_ITEM.get());
                 output.accept(GOLDEN_MOTH_SPAWN_EGG.get());
             })
             .build()
@@ -187,12 +203,16 @@ public class AquamiraeDelight {
         CREATIVE_TABS.register(modEventBus);
         PARTICLES.register(modEventBus);
         ENTITY_TYPES.register(modEventBus);
+        BLOCK_ENTITY_TYPES.register(modEventBus);
+
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.addListener(this::inWater);
         MinecraftForge.EVENT_BUS.addListener(this::onEntityAttacked);
         MinecraftForge.EVENT_BUS.addListener(this::onEntityHurt);
         MinecraftForge.EVENT_BUS.addListener(this::onEntityKilled);
+        MinecraftForge.EVENT_BUS.addListener(this::replaceJar);
         modEventBus.addListener(this::registerAttributes);
+        modEventBus.addListener(this::commonSetup);
     }
 
     @SubscribeEvent
@@ -205,6 +225,10 @@ public class AquamiraeDelight {
         ComposterBlock.COMPOSTABLES.put((ItemLike) DEEPSEA_PIE_SLICE.get(), 0.85F);
         ComposterBlock.COMPOSTABLES.put((ItemLike) FISHERMANS_DELICACY_ITEM.get(), 1.0F);
         ComposterBlock.COMPOSTABLES.put((ItemLike) DEEPSEA_PIE.get(), 1.0F);
+    }
+
+    private void commonSetup(FMLCommonSetupEvent event) {
+        ItemUtils.addLore("aquamirae_delight:golden_moth_in_a_jar");
     }
 
     public void registerAttributes(EntityAttributeCreationEvent event) {
@@ -222,6 +246,23 @@ public class AquamiraeDelight {
                 }
             }
         }
+    }
+    private void replaceJar(BlockEvent.EntityPlaceEvent event) {
+        BlockState state = event.getPlacedBlock();
+
+        if (!state.is(ExistingTag.JAR_BLOCKS)) return;
+        if (!(state.getBlock() instanceof JarBlock || state.getBlock() instanceof DecorationJarBlock)) return;
+        if ((state.is(JAR.get()))) return;
+        if (state.getBlock() instanceof DecorationJarBlock) {
+            if (!state.getValue(DecorationJarBlock.REPLACE)) {
+                return;
+            }
+        }
+        int light = state.getLightEmission(event.getLevel(), event.getPos());
+        Level level = (Level) event.getLevel();
+        BlockPos pos = event.getPos();
+        level.setBlock(pos, JAR.get().defaultBlockState().setValue(DecorationJarBlock.LIGHT, light), 2);
+
     }
     private void inWater(@NotNull LivingEvent.LivingTickEvent event) {
         Entity sourceEntity = event.getEntity();

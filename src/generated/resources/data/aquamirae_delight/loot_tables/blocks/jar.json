@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:empty",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "aquamirae_delight:jar"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "aquamirae_delight:blocks/jar"
+}

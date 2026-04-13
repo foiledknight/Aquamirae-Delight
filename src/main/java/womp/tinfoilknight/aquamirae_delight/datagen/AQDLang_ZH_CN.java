@@ -10,7 +10,7 @@ public class AQDLang_ZH_CN extends LanguageProvider {
     }
 
     protected void addTranslations() {
-        add("creative_tab.aquamirae_delight", "海灵乐事");
+        add(AquamiraeDelight.AQUAMIRAE_DELIGHT_CREATIVE_TAB_KEY, "海灵乐事");
         addItem(AquamiraeDelight.SEPARATOR, "隔离器");
         addItem(AquamiraeDelight.FIN_FILLETER, "鳍片切片机");
         addItem(AquamiraeDelight.REMNANTS_KNIFE, "残刀");
@@ -26,10 +26,10 @@ public class AQDLang_ZH_CN extends LanguageProvider {
         addItem(AquamiraeDelight.SPINEFISH_KELP_ROLL_SLICE, "棘鱼海苔卷切片");
         addBlock(AquamiraeDelight.DEEPSEA_PIE, "深海派");
         addItem(AquamiraeDelight.DEEPSEA_PIE_SLICE, "深海派片");
-        addBlock(AquamiraeDelight.FISHERMANS_DELICACY, "海味盛宴");
+        addBlock(AquamiraeDelight.FISHERMANS_DELICACY, "渔夫面包卷");
         addItem(AquamiraeDelight.FISHERMANS_DELICACY_SLICE, "渔夫面包卷切片");
         addItem(AquamiraeDelight.ANGLED_KEBAB, "鮟鱇烤肉串");
-        addBlock(AquamiraeDelight.AQUATIC_FEAST, "渔夫面包卷");
+        addBlock(AquamiraeDelight.AQUATIC_FEAST, "海味盛宴");
 
         addItem(AquamiraeDelight.GLAZED_GRILLED_SPINEFISH, "浇酱焙棘鱼");
         addItem(AquamiraeDelight.GOLDEN_PUREE_PASTA, "金蛾酱意面");
@@ -44,11 +44,14 @@ public class AQDLang_ZH_CN extends LanguageProvider {
 
         addItem(AquamiraeDelight.GOLDEN_MOTH_SPAWN_EGG, "金蛾刷怪蛋");
         addBlock(AquamiraeDelight.GOLDEN_MOTH_IN_A_JAR, "金蛾罐子");
+        addBlock(AquamiraeDelight.JAR, "罐子");
+        addBlock(AquamiraeDelight.FUNCTIONAL_JAR, "罐子");
 
         add("class.aquamirae.sea_wolf_tool", "海狼工具");
         add("ability.aquamirae_delight.separator", "虚弱 > 在 {#1} 内降低目标 10% 的移动速度。最高叠加 5 层");
         add("ability.aquamirae_delight.fin_filleter", "贪婪 > 每缺失一格饥饿值，造成的伤害增加 {#1} 点（最高 {#2} 点）。击杀生物可恢复半格饥饿值。");
         add("ability.aquamirae_delight.remnants_knife", "疾流 > 在水中获得海豚之恩，并造成 {#1} 点额外伤害");
 
+        add("lore.aquamirae_delight.golden_moth_in_a_jar", "有些生物可以拥有自己的灵魂， > 而不是靠吞噬其他的……");
     }
 }

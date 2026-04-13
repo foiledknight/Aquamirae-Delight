@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "aquamirae:golden_moth_in_a_jar"
-            ]
+            "tag": "aquamirae_delight:golden_moth_in_a_jar"
           }
         ]
       },

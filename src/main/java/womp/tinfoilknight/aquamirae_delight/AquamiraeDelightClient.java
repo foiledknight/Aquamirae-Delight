@@ -14,6 +14,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
+import womp.tinfoilknight.aquamirae_delight.renderers.FunctionalJarRenderer;
 import womp.tinfoilknight.aquamirae_delight.renderers.GoldenMothAnimalRenderer;
 
 @Mod.EventBusSubscriber(modid = AquamiraeDelight.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -24,6 +25,10 @@ public class AquamiraeDelightClient {
         event.registerEntityRenderer(
                 AquamiraeDelight.GOLDEN_MOTH.get(),
                 GoldenMothAnimalRenderer::new
+        );
+        event.registerBlockEntityRenderer(
+                AquamiraeDelight.JAR_BLOCK_ENTITY.get(),
+                FunctionalJarRenderer::new
         );
     }
     @SubscribeEvent

@@ -43,7 +43,9 @@ public class AQDItemModels extends ItemModelProvider {
         simpleItem(AquamiraeDelight.ANGLERS_SOUP);
 
         spawnEgg(AquamiraeDelight.GOLDEN_MOTH_SPAWN_EGG);
-        simpleItem(AquamiraeDelight.GOLDEN_MOTH_IN_A_JAR_BLOCK_ITEM);
+        simpleItem(AquamiraeDelight.GOLDEN_MOTH_IN_A_JAR_ITEM);
+        simpleItem(AquamiraeDelight.JAR_ITEM);
+        simpleItem(AquamiraeDelight.FUNCTIONAL_JAR_ITEM);
     }
 
     private void simpleTool(RegistryObject<Item> item) {

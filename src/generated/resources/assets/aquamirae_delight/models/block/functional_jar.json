@@ -1,0 +1,7 @@
+{
+  "parent": "aquamirae_delight:block/base/jar",
+  "textures": {
+    "jar": "aquamirae:block/jar",
+    "particle": "aquamirae:block/jar"
+  }
+}

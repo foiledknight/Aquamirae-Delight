@@ -1,7 +1,6 @@
 package womp.tinfoilknight.aquamirae_delight.entity;
 
 import com.obscuria.aquamirae.common.entities.ShipGraveyardEntity;
-import com.obscuria.aquamirae.registry.AquamiraeBlocks;
 import com.obscuria.aquamirae.registry.AquamiraeParticleTypes;
 import com.obscuria.aquamirae.registry.AquamiraeSounds;
 import net.minecraft.core.BlockPos;
@@ -29,7 +28,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.ThrownPotion;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
@@ -140,11 +138,11 @@ public class GoldenMothAnimal extends Animal implements FlyingAnimal {
     public @NotNull InteractionResult mobInteract(@NotNull Player player, @NotNull InteractionHand hand) {
         super.mobInteract(player, hand);
         ItemStack stack = player.getItemInHand(hand);
-        if (stack.getItem() == Items.GLASS_BOTTLE && !this.isBaby()) {
+        if (stack.getItem() == AquamiraeDelight.JAR_ITEM.get() && !this.isBaby()) {
             stack.shrink(1);
             if (!this.level().isClientSide()) {
                 this.level().playSound((Player) null, this.blockPosition(), (SoundEvent) AquamiraeSounds.ENTITY_GOLDEN_MOTH_CATCH.get(), SoundSource.AMBIENT, 1.0F, 1.0F);
-                ItemEntity item = new ItemEntity(this.level(), this.getX(), this.getY(), this.getZ(), new ItemStack((ItemLike) AquamiraeBlocks.GOLDEN_MOTH_IN_A_JAR.get()));
+                ItemEntity item = new ItemEntity(this.level(), this.getX(), this.getY(), this.getZ(), new ItemStack((ItemLike) AquamiraeDelight.GOLDEN_MOTH_IN_A_JAR_ITEM.get()));
                 item.setPickUpDelay(10);
                 this.level().addFreshEntity(item);
                 this.discard();

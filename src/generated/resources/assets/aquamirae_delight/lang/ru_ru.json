@@ -5,9 +5,10 @@
   "block.aquamirae_delight.aquatic_feast": "Подводное Ассорти",
   "block.aquamirae_delight.deepsea_pie": "Глубоководный Пирог",
   "block.aquamirae_delight.fishermans_delicacy": "Рыбацкий Деликатес",
+  "block.aquamirae_delight.functional_jar": "Банка",
   "block.aquamirae_delight.golden_moth_in_a_jar": "Золотой мотылёк в банке",
+  "block.aquamirae_delight.jar": "Банка",
   "class.aquamirae.sea_wolf_tool": "Инструмент морского волка",
-  "creative_tab.aquamirae_delight": "Aquamirae Delight",
   "effect.aquamirae_delight.health_decrease": "Снижение скорости",
   "entity.aquamirae_delight.golden_moth": "§eЗолотой мотылёк",
   "item.aquamirae_delight.abyssal_risotto": "Ризотто Бездны",
@@ -31,5 +32,7 @@
   "item.aquamirae_delight.spinefish_kelp_roll_slice": "Ломтик Ролла из Ламинарии с Хребеточником",
   "item.aquamirae_delight.spinefish_roll": "Ролл из Хребеточника",
   "item.aquamirae_delight.spinefish_slice": "Ломтик Хребеточника",
-  "item.aquamirae_delight.wisteria_leaves": "Листья Вистерии"
+  "item.aquamirae_delight.wisteria_leaves": "Листья Вистерии",
+  "itemGroup.aquamirae_delight": "Aquamirae Delight",
+  "lore.aquamirae_delight.golden_moth_in_a_jar": "Некоторые сокровища могут иметь собственную душу, а не только пожирать чужие..."
 }
