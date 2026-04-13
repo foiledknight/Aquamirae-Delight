@@ -2,12 +2,12 @@
 
 **📋 Content**
 
-Adds **6 new ingredients**, **15 new dishes**, and **3 new knives**. These dishes are both inspired by real world dishes, and some that are made up with both mods in mind. This mod also changes the recipes and textures for **Sea Stew**, and **Poseidon's Breakfast**, as to better fit the style of Farmer's Delight. **Oxygelium** is now harvestable with knives, giving 2-3 _Oxygelium Bulbs_. **Golden Moths** are also now breedable, allowing for increased ease of access "harvesting" them
+Adds **6 new ingredients**, **15 new dishes**, and **3 new knives**. These dishes are both inspired by real world dishes, and some that are made up with both mods in mind. This mod also changes the recipes and textures for **Sea Stew**, and **Poseidon's Breakfast**, as to better fit the style of Farmer's Delight. **Oxygelium** is now harvestable with knives, giving 2-3 _Oxygelium Bulbs_. **Golden Moths** are also now breedable after feeding them some **Wisteria Leaves**, allowing for increased ease of access "harvesting" them
 
 The new knives in this mod have different abilities, all of which are outlined below:
 
-*   **__Seperator__** - **Enervation** > _Reduces the target's speed by 10%. Stacks up to 5 times_
-*   __**Fin Filleter**__ undefined\- **Ravenous** > _For each empty hunger shank, you deal more damage. Killing a mob restores half a hunger shank_
+*   **__Separator__** - **Enervation** > _Reduces the target's speed by 10%. Stacks up to 5 times_
+*   __**Fin Filleter**__ - **Ravenous** > _For each empty hunger shank, you deal more damage. Killing a mob restores half a hunger shank_
 *   **__Remnant's Knife__** - **Swift Current** > _Gain Dolphin's Grace and deal more damage while in water_
 
 ❗ **Requirements**
@@ -22,7 +22,8 @@ The new knives in this mod have different abilities, all of which are outlined b
 
 **🗓️ Big Updates**
 
-*   **2.0.0 -** _Coded completely by hand! Goodbye MCreator! Added abilities for the three knives in this mod, made Golden Moths breedable, changed Oxygelium and Knife interactions, and increased compatability with other mods by an "infinite" ammount. On top of this, many many bugs were definetly with this version_
+*   **2.1 -** _Fixed issues with recipes, and now Golden Moths must be fed Wisteria Leaves, turning them orange, and making them breedable. Added Golden Moth In  A Jar variants as well. __**Pigs are also no longer named "Golden Moth"**___
+*   **2.0 -** _Coded completely by hand! Goodbye MCreator! Added abilities for the three knives in this mod, made Golden Moths breedable, changed Oxygelium and Knife interactions, and increased compatability with other mods by an "infinite" ammount. On top of this, many many bugs were definetly with this version_
 *   **1.5.0 -** _Added 3 new Knives. Fixed lots of bugs and incompatibilities_
 
 👥 **Credits**
